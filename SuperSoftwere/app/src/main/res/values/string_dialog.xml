@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialog_default">正在处理，请稍后...</string>
+    <string name="dialog_registering">正在注册，请稍候...</string>
+    <string name="dialog_logining">正在登录，请稍候...</string>
+    <string name="dialog_uploading">正在上传数据，请稍候...</string>
+    <string name="dialog_submit_info">正在提交信息，请稍候...</string>
+    <string name="dialog_load_unanswered_orders">正在加载未接订单数据，请稍候...</string>
+    <string name="dialog_load_unallocated_orders">正在加载未分配订单数据，请稍候...</string>
+    <string name="dialog_load_allocated_orders">正在加载已分配订单数据，请稍候...</string>
+    <string name="dialog_load_finished_orders">正在加载已完成订单数据，请稍候...</string>
+    <string name="dialog_load_wait_take_delivery_orders">正在加载待取货订单数据，请稍候...</string>
+    <string name="dialog_load_taken_delivery_orders">正在加载已取货订单数据，请稍候...</string>
+    <string name="dialog_load_unforward_orders">正在加载未转发订单数据，请稍候...</string>
+    <string name="dialog_load_forwarded_orders">正在加载已转发订单数据，请稍候...</string>
+    <string name="dialog_load_order_info">正在加载订单详细信息，请稍候...</string>
+    <string name="dialog_load_qrcode_data">正在加载二维码数据...</string>
+
+    <string name="dialog_load_clerk_list">正在加载集货员数据，请稍候...</string>
+    <string name="dialog_load_driver_list">正在加载司机数据，请稍候...</string>
+    <string name="dialog_load_data">正在加载数据中，请稍候...</string>
+    <string name="dialog_load_logisticses">加载物流公司数据中，请稍候...</string>
+
+    <string name="dialog_confirm_finished_order">正在确认收货，请稍等...</string>
+
+    <string name="dialog_calculate_deliver_fee">正在预估运费，请稍候...</string>
+    <string name="dialog_forward_order">正在转发订单，请稍候...</string>
+
+    <string name="dialog_reset">正在重置密码，请稍候...</string>
+    <string name="dialog_share">正在调用分享功能，请稍候...</string>
+    <string name="dialog_assign_clerk_for_order">正在指派集货员，请稍候...</string>
+    <string name="dialog_assign_driver_for_order">正在指派司机，请稍候...</string>
+    <string name="dialog_submit_refuse_order_info">正在提交拒单信息，请稍候...</string>
+    <string name="dialog_receive_order_from_employee">正在收货，请稍候...</string>
+    <string name="dialog_receive">正在接单，请稍候...</string>
+    <string name="dialog_refuse">正在拒单，请稍候...</string>
+</resources>

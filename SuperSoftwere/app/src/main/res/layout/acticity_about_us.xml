@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <ImageView
+        android:layout_width="85dp"
+        android:layout_height="80dp"
+        android:src="@drawable/app_icon"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#00a0ea"
+        android:text="SuperSoftwere"
+        android:textSize="18sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"/>
+    <TextView
+        android:id="@+id/tv_version_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_gravity="center_horizontal"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="14dp"
+        android:src="@drawable/icon_lines" />
+    <RelativeLayout
+        android:id="@+id/rl_feedback"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:gravity="center_vertical"
+            android:text="意见反馈"
+            android:textColor="#333"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/iv_feedback"
+            android:layout_width="10dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="14dp"
+            android:src="@drawable/icon_input" />
+    </RelativeLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="14dp"
+        android:src="@drawable/icon_lines" />
+
+    <RelativeLayout
+        android:id="@+id/rl_score"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:gravity="center_vertical"
+            android:text="亲，给个好评"
+            android:textColor="#333"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/iv_score"
+            android:layout_width="10dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="14dp"
+            android:src="@drawable/icon_input" />
+    </RelativeLayout>
+    <!--<WebView
+        android:id="@+id/wv_about_us"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/space_30"
+        android:layout_marginRight="@dimen/space_30"
+        android:layout_marginTop="@dimen/space_36"
+        android:background="#fff"
+        android:textColor="#666"
+        android:textSize="@dimen/text_28" />-->
+</LinearLayout>

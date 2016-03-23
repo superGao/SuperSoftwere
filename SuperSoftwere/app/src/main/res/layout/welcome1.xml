@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#35d8bb"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/w1_tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="superSoftwere1"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/w1_img1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/w1_tv1"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/w512" />
+
+    <ImageView
+        android:id="@+id/w1_img2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/w1_tv1"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/w513" />
+
+    <ImageView
+        android:id="@+id/w1_img3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/w1_img1"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/w514" />
+
+    <ImageView
+        android:id="@+id/w1_img7"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/w1_img1"
+        android:layout_marginLeft="190dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/w526" />
+
+    <ImageView
+        android:id="@+id/w1_img4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/w1_img3"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/w515" />
+    <ImageView
+        android:id="@+id/w1_img5"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/w1_img3"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="120dp"
+        android:src="@drawable/w524" />
+    <ImageView
+        android:id="@+id/w1_img6"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/w1_img3"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="240dp"
+        android:src="@drawable/w525" />
+
+</RelativeLayout>

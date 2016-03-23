@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_home_cgn"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:layout_weight="3"
+    android:baselineAligned="false"
+    android:orientation="vertical"
+    android:weightSum="5">
+
+    <LinearLayout
+        android:id="@+id/rl_cgn_area"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:weightSum="2">
+            <!-- 订单查询 -->
+            <RelativeLayout
+                android:id="@+id/rlayout_order_query"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/main_orange_selector">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/img_order_query"
+                        android:layout_width="28dp"
+                        android:layout_height="36dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/contentDescription"
+                        android:src="@drawable/icon_home_waybill" />
+
+                    <TextView
+                        style="@style/HomeBtnTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/label_order_query" />
+                </LinearLayout>
+            </RelativeLayout>
+            <!-- 我要收货 -->
+            <RelativeLayout
+                android:id="@+id/rlayout_receipt"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/space_22"
+                android:layout_weight="1"
+                android:background="@drawable/main_red_selector">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/img_receipt"
+                        android:layout_width="28dp"
+                        android:layout_height="36dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/contentDescription"
+                        android:src="@drawable/icon_home_tosend" />
+
+                    <TextView
+                        style="@style/HomeBtnTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/label_receipt" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/space_22"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:weightSum="2">
+            <!-- 订单转发 -->
+            <RelativeLayout
+                android:id="@+id/rlayout_order_forward"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/main_blue_selector">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/img_order_forward"
+                        android:layout_width="28dp"
+                        android:layout_height="36dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/contentDescription"
+                        android:src="@drawable/icon_home_forward" />
+
+                    <TextView
+                        style="@style/HomeBtnTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/label_order_forward" />
+                </LinearLayout>
+            </RelativeLayout>
+            <!-- 收货确认，终端快递员 -->
+            <RelativeLayout
+                android:id="@+id/rlayout_confirm_receipt"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/space_22"
+                android:layout_weight="1"
+                android:background="@drawable/main_green_selector">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/img_confirm_receipt"
+                        android:layout_width="28dp"
+                        android:layout_height="36dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/contentDescription"
+                        android:src="@drawable/icon_home_toreceive" />
+
+                    <TextView
+                        style="@style/HomeBtnTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/label_confirm_receipt" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

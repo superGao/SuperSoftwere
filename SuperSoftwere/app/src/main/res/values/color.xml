@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- titlebar颜色 -->
+    <!-- 常用颜色 -->
+    <color name="tab_backgrond">#eeeeee</color>
+    <color name="transparent">#00000000</color>
+    <color name="green">#38AE3E</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#ff000000</color>
+    <color name="orange">#ffff740f</color>
+    <color name="yellow">#ffe87215</color>
+    <color name="red">#ffff0000</color>
+    <!--     <color name="gray">#ff7d7d7d</color> -->
+    <color name="gray">#dedfe1</color>
+    <color name="blue">#ff0000ff</color>
+    <color name="transparents">#b4000000</color>
+    <!-- 字体颜色 -->
+    <color name="tx_gray">#999999</color>
+    <color name="tx_green">#38ae3e</color>
+    <color name="tx_black">#ff000000</color>
+
+    <!-- 布局颜色 -->
+    <color name="rl_home_branches">#2E6DCB</color>
+    <!-- 服务网点 -->
+    <color name="rl_home_toreceive">#38AE3E</color>
+    <!-- 寄给我的 -->
+    <color name="rl_home_claims">#10717A</color>
+    <!-- 我要理赔 -->
+    <color name="rl_home_tosend">#ff6622</color><!--F9670F-->
+    <!-- 我要发货 -->
+
+
+    <!-- 按钮颜色 -->
+    <color name="btn_normal">#F3F4F6</color>
+    <color name="btn_pressed">#FFFFFF</color>
+    <color name="img_normal">#F3F4F6</color>
+    <color name="img_pressed">#38AE3E</color>
+
+    <!-- 背景颜色 -->
+    <color name="bg_title">#2fb16b</color><!--30A836-->
+    <color name="bg_content">#F3F4F6</color>
+    <color name="bg_line">#BBBBBB</color>
+    <color name="bg_home_search">#C9C9C9</color>
+    <color name="bg_leftmenu_integral">#618A5D</color>
+
+    <!-- 司机集货员中的颜色 -->
+
+    <!-- 首页 寄给我的颜色值 -->
+    <color name="send_tome">#38AE3E</color>
+
+    <!-- 首页 我要理赔颜色值 -->
+    <color name="my_claim">#10717a</color>
+    <color name="transport_todo">#fc5528</color>
+    <color name="transport_ok">#38ae3e</color>
+
+    <!-- zxing 框架 -->
+    <color name="contents_text">#ff000000</color>
+    <color name="encode_view">#ffffffff</color>
+    <color name="possible_result_points">#c0ffbd21</color>
+
+    <!-- Android standard ICS color -->
+    <color name="result_minor_text">#ffc0c0c0</color>
+    <color name="result_points">#c099cc00</color>
+
+    <!-- Android standard ICS color -->
+    <color name="result_text">#ffffffff</color>
+    <color name="result_view">#b0000000</color>
+    <color name="status_text">#ffffffff</color>
+    <color name="viewfinder_laser">#ffcc0000</color>
+    <!-- Android standard ICS color -->
+    <color name="viewfinder_mask">#60000000</color>
+
+    <color name="item_click_color">#2557a2</color>
+    <!-- 服务网点点击效果 -->
+    <color name="service_clcik_color">#2557a2</color>
+    <!-- 寄给我的点击效果 -->
+    <color name="sendtome_clcik_color">#2d8b32</color>
+    <!-- 我要理赔点击效果 -->
+    <color name="myclaim_clcik_color">#0d5a62</color>
+    <!-- 我要发货点击效果 -->
+    <color name="mysend_clcik_color">#eb5f21</color><!--c7520c-->
+
+    <color name="edittext_color">#666</color>
+    <color name="textview_color">#333</color>
+
+
+    <color name="main_purple_normal">#35b05e</color><!--CB48C5-->
+    <color name="main_purple_press">#319f55</color><!--9e2e99-->
+
+    <color name="main_yellow_normal">#f5b055</color><!--38c1c8-->
+    <color name="main_yellow_press">#e5a34b</color><!--2d959a-->
+
+    <color name="main_orange_normal">#ff6622</color><!--CB48C5-->
+    <color name="main_orange_press">#eb5f21</color><!--9e2e99-->
+
+    <color name="main_blue_normal">#36a2c6</color><!--db423a-->
+    <color name="main_blue_press">#3094b5</color><!--a7352f-->
+
+    <color name="main_deep_blue_normal">#2f65a7</color><!--2f65a7-->
+    <color name="main_deep_blue_press">#1d4576</color><!--1d4576-->
+
+    <color name="main_red_normal">#f26666</color><!--65a72f-->
+    <color name="main_red_press">#e2565b</color><!--518725-->
+
+    <color name="main_green_normal">#30b179</color><!--b67b33-->
+    <color name="main_green_press">#2ca06e</color><!--926228-->
+</resources>

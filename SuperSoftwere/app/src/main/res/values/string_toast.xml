@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="toast_register_success">恭喜您，注册成功</string>
+    <string name="toast_login_success">欢迎回来，登录成功</string>
+
+    <string name="toast_accept_orders_success">接收订单成功。</string>
+    <string name="toast_refuse_orders_success">拒绝订单成功。</string>
+    <string name="toast_allocate_orders_success">分配订单成功。</string>
+
+    <string name="toast_perfect_info_success">完善信息成功提交</string>
+
+    <string name="toast_please_input_other_reason">请填写其他拒单理由</string>
+    <string name="toast_please_select_accept_orderinfo">请选择要接收的订单</string>
+    <string name="toast_please_select_refuse_orderinfo">请选择要拒绝的订单</string>
+    <string name="toast_please_select_forward_orderinfo">请选择要转发的订单</string>
+    <string name="toast_please_select_allocate_orderinfo">请选择要分配的订单</string>
+
+    <string name="toast_take_delivery_order_goods_success">已取件成功</string>
+
+    <string name="toast_assign_clerk_success">指派集货员成功</string>
+
+    <string name="toast_confirm_pickup_order_success">确认收货成功。</string>
+    <string name="toast_confirm_forward_success">确认转发成功。</string>
+    <string name="toast_receipt_orders_success">接收成功</string>
+
+    <string name="toast_no_record">暂无记录</string>
+    <string name="toast_no_order_record">暂无要发货的记录</string>
+    <string name="toast_reset_pwd_success">重置密码成功</string>
+</resources>

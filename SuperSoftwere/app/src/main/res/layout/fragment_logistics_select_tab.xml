@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <RadioGroup
+        android:id="@+id/rgroup_tab_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/rbtn_tab_title_composite"
+            android:layout_width="0dip"
+            android:layout_height="40dip"
+            android:layout_weight="1"
+            android:background="@drawable/vpi__tab_indicator"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:paddingLeft="0dip"
+            android:text="@string/tab_composite"
+            android:textColor="@color/tab_color" />
+
+        <RadioButton
+            android:id="@+id/rbtn_tab_title_price"
+            android:layout_width="0dip"
+            android:layout_height="40dip"
+            android:layout_weight="1"
+            android:background="@drawable/vpi__tab_indicator"
+            android:button="@null"
+            android:gravity="center"
+            android:paddingLeft="0dip"
+            android:text="@string/tab_price"
+            android:textColor="@color/tab_color" />
+        <RadioButton
+            android:id="@+id/rbtn_tab_title_aging"
+            android:layout_width="0dip"
+            android:layout_height="40dip"
+            android:layout_weight="1"
+            android:background="@drawable/vpi__tab_indicator"
+            android:button="@null"
+            android:gravity="center"
+            android:paddingLeft="0dip"
+            android:text="@string/tab_aging"
+            android:textColor="@color/tab_color" />
+        <RadioButton
+            android:id="@+id/rbtn_tab_title_evaluate"
+            android:layout_width="0dip"
+            android:layout_height="40dip"
+            android:layout_weight="1"
+            android:background="@drawable/vpi__tab_indicator"
+            android:button="@null"
+            android:gravity="center"
+            android:paddingLeft="0dip"
+            android:text="@string/tab_evaluate"
+            android:textColor="@color/tab_color" />
+        <RadioButton
+            android:id="@+id/rbtn_tab_title_distance"
+            android:layout_width="0dip"
+            android:layout_height="40dip"
+            android:layout_weight="1"
+            android:background="@drawable/vpi__tab_indicator"
+            android:button="@null"
+            android:gravity="center"
+            android:paddingLeft="0dip"
+            android:text="@string/tab_distance"
+            android:textColor="@color/tab_color" />
+    </RadioGroup>
+</LinearLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    
+    <color name="bg_layout_activity">#f3f4f6</color>
+    <color name="text_btn_common">#fff</color>
+    
+    <color name="text_txt_gray1">#989898</color>
+
+    <color name="item_blue">#330000</color>
+
+    <!-- 标签页文字颜色-->
+    <color name="tab_title_checked">#330000</color>
+    <color name="tab_title_unchecked">#ff999999</color>
+
+    <!-- 普通状态按钮蓝颜色-->
+    <color name="btn_normal_blue">#330000</color>
+    <!-- 按下状态按钮蓝颜色-->
+    <color name="btn_pressed_blue">#330000</color>
+
+    <color name="theme_bg_blue">#330000</color>
+
+    <color name="color1">#330000</color>
+    <color name="color2">#ffdb4437</color>
+    <color name="color3">#ff0f9d58</color>
+    <color name="color4">#fff4b400</color>
+
+    <color name="half_transparent">#11000000</color>
+</resources>

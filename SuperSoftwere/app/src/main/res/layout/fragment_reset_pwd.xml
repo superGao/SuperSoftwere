@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!-- 手机号码-->
+            <LinearLayout
+                style="@style/LoginLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+                <TextView
+                    style="@style/LoginViewStyle"
+                    android:layout_width="60dp"
+                    android:gravity="center_vertical"
+                    android:text="手机号："
+                    android:textSize="@dimen/text_30"
+                    android:textColor="#666" />
+
+                <EditText
+                    android:id="@+id/edt_mobile"
+                    style="@style/LoginViewStyle"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="2dp"
+                    android:background="@color/white"
+                    android:phoneNumber="true"
+                    android:singleLine="true"
+                    android:maxLength="11"
+                    android:hint="请输入手机号"
+                    android:textColor="@color/edittext_color" />
+            </LinearLayout>
+            <ImageView
+                style="@style/LoginLayoutStyle2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/line_horizontal_2"/>
+            <!-- 验证码-->
+            <RelativeLayout
+                style="@style/LoginLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:id="@+id/tv_resetpwd_captcha"
+                        style="@style/LoginViewStyle"
+                        android:layout_width="60dp"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
+                        android:text="验证码："
+                        android:textSize="@dimen/text_30"
+                        android:textColor="#666" />
+
+                    <EditText
+                        android:id="@+id/edt_captcha"
+                        style="@style/LoginViewStyle"
+                        android:layout_width="150dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="2dp"
+                        android:layout_toRightOf="@id/tv_resetpwd_captcha"
+                        android:background="@color/white"
+                        android:ems="6"
+                        android:hint="请输入验证码"
+                        android:numeric="integer"
+                        android:maxLength="6"
+                        android:singleLine="true"
+                        android:textColor="@color/edittext_color" />
+
+                    <Button
+                        android:id="@+id/btn_send_captcha"
+                        style="@style/LoginViewStyle"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/bg_button"
+                        android:singleLine="true"
+                        android:text="获取验证码"
+                        android:textColor="#fff" />
+                </RelativeLayout>
+            </RelativeLayout>
+            <ImageView
+                style="@style/LoginLayoutStyle2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/line_horizontal_2"/>
+            <!-- 密码 -->
+            <LinearLayout
+                style="@style/LoginLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    style="@style/LoginViewStyle"
+                    android:layout_width="60dp"
+                    android:gravity="center_vertical"
+                    android:text="密　码："
+                    android:textSize="@dimen/text_30"
+                    android:textColor="#666" />
+
+                <EditText
+                    android:id="@+id/edt_pwd"
+                    style="@style/LoginViewStyle"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="2dp"
+                    android:background="@color/white"
+                    android:ems="10"
+                    android:hint="6-18位字符"
+                    android:password="true"
+                    android:singleLine="true"
+                    android:textColor="@color/edittext_color"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+            <ImageView
+                style="@style/LoginLayoutStyle2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/line_horizontal_2"/>
+            <!--<LinearLayout-->
+                <!--style="@style/LoginLayoutStyle"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:orientation="horizontal">-->
+                <!--<TextView-->
+                    <!--style="@style/LoginViewStyle"-->
+                    <!--android:layout_width="70dp"-->
+                    <!--android:gravity="center_vertical"-->
+                    <!--android:text="确认密码："-->
+                    <!--android:textColor="#666" />-->
+
+                <!--<EditText-->
+                    <!--android:id="@+id/edt_register_pwd_ok"-->
+                    <!--style="@style/LoginViewStyle"-->
+                    <!--android:layout_gravity="center_vertical"-->
+                    <!--android:layout_marginLeft="2dp"-->
+                    <!--android:background="@color/white"-->
+                    <!--android:ems="10"-->
+                    <!--android:hint="6-18位字符"-->
+                    <!--android:password="true"-->
+                    <!--android:singleLine="true"-->
+                    <!--android:textColor="@color/edittext_color"-->
+                    <!--android:textSize="14sp"/>-->
+            <!--</LinearLayout>-->
+            <!--<ImageView-->
+                <!--style="@style/LoginLayoutStyle"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="1dp"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--android:src="@drawable/icon_set_pwd_line"-->
+                <!--/>-->
+            <RelativeLayout
+                style="@style/LoginLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btn_submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="@dimen/space_60"
+                    android:background="@drawable/button_selector"
+                    android:text="@string/btn_ok"
+                    android:textColor="#fff"
+                    android:textSize="18sp" />
+
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

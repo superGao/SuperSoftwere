@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CircledImageViewLib/CircledImageViewLib.iml" filepath="$PROJECT_DIR$/CircledImageViewLib/CircledImageViewLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SuperSoftwere.iml" filepath="$PROJECT_DIR$/SuperSoftwere.iml" />
+      <module fileurl="file://$PROJECT_DIR$/api/api.iml" filepath="$PROJECT_DIR$/api/api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bean/bean.iml" filepath="$PROJECT_DIR$/bean/bean.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libSupport/libSupport.iml" filepath="$PROJECT_DIR$/libSupport/libSupport.iml" />
+    </modules>
+  </component>
+</project>
