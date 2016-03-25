@@ -12,7 +12,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +27,7 @@ import com.avos.avoscloud.AVCloudQueryResult;
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.CloudQueryCallback;
+import com.avos.avoscloud.GetDataCallback;
 import com.iflytek.cloud.ErrorCode;
 import com.iflytek.cloud.InitListener;
 import com.iflytek.cloud.RecognizerResult;
@@ -36,7 +36,6 @@ import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechRecognizer;
 import com.iflytek.cloud.ui.RecognizerDialog;
 import com.iflytek.cloud.ui.RecognizerDialogListener;
-import com.koushikdutta.ion.Ion;
 import com.nineoldandroids.view.ViewHelper;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -51,8 +50,10 @@ import com.supergao.software.fragment.HomeSoftwFragment;
 import com.supergao.software.handler.MessageDefine;
 import com.supergao.software.handler.MessageManager;
 import com.supergao.software.utils.AVService;
+import com.supergao.software.utils.BitmapUtils;
 import com.supergao.software.utils.ImageUtil;
 import com.supergao.software.utils.JsonParser;
+import com.supergao.software.utils.Log;
 import com.supergao.software.utils.NetWorkUtil;
 import com.supergao.software.utils.SharedPreferencesUtil;
 import com.supergao.software.utils.SpeechOperateUtils;
@@ -143,6 +144,24 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
 
     boolean isShowDialog = true;
 
+    private Bitmap bitmap;  //用户头像bitmap
+
+    private boolean isStop = false;
+    private ViewPager mViewPager;
+    private List<ImageInfo> list;
+    private List<ImageView> imageViewList;
+    private MyPagerAdapter mAdapter;
+    private LinearLayout llPointGroup;
+    private int previousPosition = 0;
+
+    private EditText numSearch;// 搜索功能
+    private String keyword;// 输入内容
+    private View titleView;
+    private static final int ID_MSG = 1;
+    private static final int ID_SAO = 2;
+    //    QuickAction quickAction;
+    private RelativeLayout deiverSend;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -161,7 +180,7 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         // 使用SpeechRecognizer对象，可根据回调消息自定义界面；
         mIat = SpeechRecognizer.createRecognizer(MainActivity.this, mInitListener);
         mIatDialog = new RecognizerDialog(MainActivity.this, mInitListener);
-
+        Log.setLoggable(true);//log开关
         //AVAnalytics.trackAppOpened(getIntent());
     }
 
@@ -170,25 +189,6 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         super.onResume();
         // 初始化显示数据
         initShowData() ;
-    }
-
-    /**
-     * 初始化显示数据
-     */
-    private void initShowData() {
-        if (null != avUser) {
-            usernameLeftMenuTxt.setText(avUser.getUsername());
-            // 左侧菜单显示头像
-            Ion.with(mLeftmenuHeaderImg)
-                        .placeholder(R.drawable.icon_leftmenu_header).error(R.drawable.icon_leftmenu_header)
-                        .load(AppConfig.userInfo.getHeader()) ;
-            // 标题栏 头像
-            Ion.with(mTitleHeaderImg)
-                    .placeholder(R.drawable.icon_header).error(R.drawable.icon_header)
-                        .load(AppConfig.userInfo.getHeader()) ;
-        } else {
-            usernameLeftMenuTxt.setText("登录用户");
-        }
     }
 
     /**
@@ -216,6 +216,29 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.ll_fragment_leftmenu_container, mHomeBossLeftmenuFragment)
                 .commit();
+    }
+
+    /**
+     * 初始化显示数据
+     * 用户名
+     */
+    private void initShowData() {
+        if (null != avUser) {
+            usernameLeftMenuTxt.setText(avUser.getUsername());
+            /*// 左侧菜单显示头像
+            Ion.with(mLeftmenuHeaderImg)
+                    .placeholder(R.drawable.icon_leftmenu_header).error(R.drawable.icon_leftmenu_header)
+                    .load(AppConfig.userInfo.getHeader()) ;
+            // 标题栏 头像
+            Ion.with(mTitleHeaderImg)
+                    .placeholder(R.drawable.icon_header).error(R.drawable.icon_header)
+                    .load(AppConfig.userInfo.getHeader()) ;*/
+            showPortrait(AppConfig.userInfo.getPortraitBit());
+        } else {
+            usernameLeftMenuTxt.setText("登录用户");
+            mLeftmenuHeaderImg.setImageDrawable(getResources().getDrawable(R.drawable.icon_leftmenu_header));
+            mTitleHeaderImg.setImageDrawable(getResources().getDrawable(R.drawable.icon_header));
+        }
     }
 
     /**
@@ -283,25 +306,6 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
                 finish();
             }
         }
-    }
-
-    /**
-     * 退出程序
-     */
-    @Override
-    public boolean onKeyUp(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            long secondTime = System.currentTimeMillis();
-            if (secondTime - firstTime > 2000) {// 如果两次按键时间间隔大于800毫秒，则不退出
-                Toast.makeText(MainActivity.this, "再按一次可退出程序", Toast.LENGTH_SHORT).show();
-                firstTime = secondTime;// 更新firstTime
-                return true;
-            } else { // System.exit(0);// 否则退出程序
-                System.exit(0);
-                //finish();
-            }
-        }
-        return super.onKeyUp(keyCode, event);
     }
 
     @Override
@@ -416,7 +420,7 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
     }
 
     /**
-     * 参数设置
+     * 语音听写参数设置
      */
     public void setParam() {
         // 清空参数
@@ -513,36 +517,84 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    private boolean isStop = false;
-    private ViewPager mViewPager;
-    private List<ImageInfo> list;
-    private List<ImageView> imageViewList;
-    private MyPagerAdapter mAdapter;
-    private LinearLayout llPointGroup;
-    private int previousPosition = 0;
-
-    private EditText numSearch;// 搜索功能
-    private String keyword;// 输入内容
-    private View titleView;
-    private static final int ID_MSG = 1;
-    private static final int ID_SAO = 2;
-    //    QuickAction quickAction;
-    private RelativeLayout deiverSend;
-
     /**
      * 切换广告图片
+     * 加载用户头像
      */
     private void switchAd() {
         new Thread(new Runnable() {
             @Override
             public void run() {
+                loadPortrait();
                 while (!isStop) {
                     SystemClock.sleep(3000);
                     MessageManager.sendMessage(handler, MessageDefine.PIC, null);
                 }
             }
         }).start();
+        loadAdvertisement();
+    }
 
+    /**
+     * 加载用户头像
+     */
+    private void loadPortrait(){
+        //加载用户头像
+        final GetDataCallback getDataCallback=new GetDataCallback() {
+            @Override
+            public void done(byte[] bytes, AVException e) {
+                if(e==null){
+                    Log.d("hhhdata", "length:   " + bytes.length);
+                    Bundle data=new Bundle();
+                    data.putByteArray("data", bytes);
+                    MessageManager.sendMessage(handler,MessageDefine.PORTRAIT,data);
+                }else{
+                    Log.e("hhherror",e.getMessage()+"  code:"+e.getCode());
+                }
+            }
+        };
+        try {
+            AVService.loadHeader(AppConfig.userInfo.getObjectId(), getDataCallback);
+        } catch (AVException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 消息接收器
+     */
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case MessageDefine.PIC:
+                    mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1);
+                    break;
+                case MessageDefine.PORTRAIT:
+                    Bundle data=(Bundle)msg.obj;
+                    byte[] bytes=data.getByteArray("data");
+                    Log.d("hhhdata","length:   "+bytes.length);
+                    bitmap= BitmapUtils.getBitmap(bytes);
+                    showPortrait(bitmap);
+            }
+        }
+    };
+
+    private void showPortrait(Bitmap bitmap){
+        if(bitmap==null){
+            mLeftmenuHeaderImg.setImageDrawable(getResources().getDrawable(R.drawable.icon_leftmenu_header));
+            mTitleHeaderImg.setImageDrawable(getResources().getDrawable(R.drawable.icon_header));
+        }else{
+            AppConfig.userInfo.setPortraitBit(bitmap);
+            mLeftmenuHeaderImg.setImageBitmap(bitmap);
+            mTitleHeaderImg.setImageBitmap(bitmap);
+        }
+    }
+
+    /**
+     * 加载广告图
+     */
+    private void loadAdvertisement(){
         mViewPager = (ViewPager) findViewById(R.id.viewpager_homepage);
         llPointGroup = (LinearLayout) findViewById(R.id.ll_point_group);
         if (!NetWorkUtil.isNetworkConnected(MainActivity.this)) {
@@ -556,7 +608,7 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
             }
         } else {
             mViewPager.setBackgroundResource(R.drawable.pic_loading);
-//            加载广告图片
+            //加载广告图片
             CloudQueryCallback<AVCloudQueryResult> cloudQueryCallback=new CloudQueryCallback<AVCloudQueryResult>() {
                 @Override
                 public void done(AVCloudQueryResult avCloudQueryResult, AVException e) {
@@ -567,7 +619,7 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
                             imageInfo.setUrl(avCloudQueryResult.getResults().get(i).getString("url"));
                             list.add(imageInfo);
                         }
-                        Log.d("resStr",list.get(0).getUrl());
+                        Log.d("resStr",list.get(2).getUrl());
                         SharedPreferencesUtil.saveRollImage(
                                 getApplicationContext(), list);
                         initViewHomePage();
@@ -638,6 +690,7 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
 
     /**
      * 广告条
+     * 显示广告图片
      */
     private void initViewHomePage() {
         imageViewList = new ArrayList<ImageView>();
@@ -651,7 +704,7 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         for (int i = 0; i < list.size(); i++) {
             iv = new ImageView(MainActivity.this);
             imageViewList.add(iv);
-            tool.getImageBitmap(iv, list.get(i).getUrl(),
+            tool.getImageBitmap(iv,list.get(i).getUrl(),
                     new ImageUtil.ImageCallBack() {
 
                         @Override
@@ -693,22 +746,6 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         llPointGroup.getChildAt(previousPosition).setEnabled(true); // 第一点被选中
     }
 
-    /**
-     * 消息接收器
-     */
-    private Handler handler = new Handler() {
-
-        @Override
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-                case MessageDefine.PIC:
-                    mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1);
-                    break;
-
-            }
-        }
-    };
-
     @Override
     public void onPageScrollStateChanged(int arg0) {
 
@@ -725,5 +762,24 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
         llPointGroup.getChildAt(previousPosition).setEnabled(false);
         previousPosition = position % imageViewList.size();
 
+    }
+
+    /**
+     * 退出程序
+     */
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            long secondTime = System.currentTimeMillis();
+            if (secondTime - firstTime > 2000) {// 如果两次按键时间间隔大于800毫秒，则不退出
+                Toast.makeText(MainActivity.this, "再按一次可退出程序", Toast.LENGTH_SHORT).show();
+                firstTime = secondTime;// 更新firstTime
+                return true;
+            } else { // System.exit(0);// 否则退出程序
+                System.exit(0);
+                //finish();
+            }
+        }
+        return super.onKeyUp(keyCode, event);
     }
 }

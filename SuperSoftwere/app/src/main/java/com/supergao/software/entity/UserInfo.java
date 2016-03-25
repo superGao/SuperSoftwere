@@ -1,5 +1,7 @@
 package com.supergao.software.entity;
 
+import android.graphics.Bitmap;
+
 import com.avos.avoscloud.AVUser;
 
 /**
@@ -9,6 +11,16 @@ import com.avos.avoscloud.AVUser;
 public class UserInfo extends AVUser {
 
     private String header;
+
+    private Bitmap portraitBit;
+
+    public Bitmap getPortraitBit() {
+        return portraitBit;
+    }
+
+    public void setPortraitBit(Bitmap portraitBit) {
+        this.portraitBit = portraitBit;
+    }
 
     public String getHeader() {
         return header;

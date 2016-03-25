@@ -64,35 +64,6 @@
             android:gravity="center_vertical|end"
             android:textSize="@dimen/text_30" />
     </RelativeLayout>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="@dimen/space_30"
-        android:src="@drawable/icon_line" />
-    <RelativeLayout
-        android:id="@+id/rlayout_qrcode_image"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/space_88"
-        android:background="@color/white">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/space_30"
-            android:text="身份二维码"
-            android:textColor="#333"
-            android:textSize="@dimen/text_28" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/space_30"
-            android:src="@drawable/icon_input" />
-    </RelativeLayout>
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="1dp"

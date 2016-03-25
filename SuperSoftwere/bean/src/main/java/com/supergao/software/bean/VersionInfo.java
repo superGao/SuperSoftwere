@@ -6,7 +6,7 @@ import java.io.Serializable;
  * 版本信息
  * Created by YangJie on 2015/11/12.
  */
-public class VersionInfo implements Serializable {
+public class VersionInfo implements Serializable{
     private String type;    //类别（1：客户端，2：）
     private String version;//版本号
     private String url;//版本地址

@@ -8,7 +8,7 @@ import android.graphics.BitmapFactory.Options;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
+import com.supergao.software.utils.Log;
 import android.widget.ImageView;
 
 import com.supergao.software.handler.MessageDefine;

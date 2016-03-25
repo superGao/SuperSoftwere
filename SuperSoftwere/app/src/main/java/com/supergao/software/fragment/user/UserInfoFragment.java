@@ -6,7 +6,10 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
+import com.supergao.software.utils.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +18,11 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVUser;
+import com.avos.avoscloud.GetDataCallback;
+import com.avos.avoscloud.ProgressCallback;
+import com.avos.avoscloud.SaveCallback;
 import com.supergao.circledimageview.CircledImageView;
 import com.supergao.software.activity.BaseSingleFragmentActivity;
 import com.supergao.software.entity.AppConfig;
@@ -28,6 +35,8 @@ import com.supergao.software.bean.RegisterType;
 import com.supergao.software.core.listener.DefaultActionCallbackListener;
 import com.supergao.software.fragment.ContentFragment;
 import com.supergao.software.popup.CameraPop;
+import com.supergao.software.utils.AVService;
+import com.supergao.software.utils.BitmapUtils;
 import com.supergao.software.utils.DoCacheUtil;
 import com.koushikdutta.ion.Ion;
 
@@ -50,11 +59,10 @@ public class UserInfoFragment extends ContentFragment implements View.OnClickLis
     @Bind(R.id.img_user_header)
     CircledImageView userHeaderImg;
     public static EditText realnameEdt;
-    @Bind(R.id.rlayout_qrcode_image)
-    RelativeLayout qrcodeImageRlayout;
     @Bind(R.id.btn_logout)
     Button logoutBtn;
     private CircledImageView headerPicImg;
+    private Bitmap bitmap;
 
     /**
      * 选择照片类型
@@ -85,9 +93,9 @@ public class UserInfoFragment extends ContentFragment implements View.OnClickLis
         super.onActivityCreated(savedInstanceState);
         headerPicImg = (CircledImageView) getView().findViewById(R.id.img_user_header);
         realnameEdt=(EditText)getView().findViewById(R.id.edt_realname);
-        initShowData() ;
         headerPicImg.setOnClickListener(this);
         doCacheUtil = DoCacheUtil.get(getActivity()) ;
+        initShowData();
     }
 
     /**
@@ -96,10 +104,15 @@ public class UserInfoFragment extends ContentFragment implements View.OnClickLis
     private void initShowData() {
         AVUser userInfo = AppConfig.avUser ;
         realnameEdt.setText(userInfo.getUsername());
+        bitmap=AppConfig.userInfo.getPortraitBit();
         // 显示头像
-        Ion.with(userHeaderImg)
-                .placeholder(R.drawable.ic_default).error(R.drawable.ic_default)
-                .load(AppConfig.userInfo.getHeader()) ;
+        if(bitmap==null){
+            headerPicImg.setImageDrawable(getResources().getDrawable(R.drawable.ic_default));
+        }else{
+            headerPicImg.setImageBitmap(bitmap);
+        }
+        //Ion.with(userHeaderImg).placeholder(R.drawable.ic_default).error(R.drawable.ic_default).load(AppConfig.userInfo.getHeader()) ;//根据获取到的图片链接显示图片
+
     }
 
     /**
@@ -113,16 +126,6 @@ public class UserInfoFragment extends ContentFragment implements View.OnClickLis
         getActivity().setResult(Activity.RESULT_OK);
         getActivity().finish();
     }
-
-
-    @OnClick(R.id.rlayout_qrcode_image)
-    void onQrcodeImageRlayoutClick(View view) {
-        // 打开二维码activity
-        Intent intent = new Intent(getActivity(), IQRCodeActivity.class) ;
-        startActivity(intent);
-    }
-
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
@@ -155,13 +158,32 @@ public class UserInfoFragment extends ContentFragment implements View.OnClickLis
     private void setPicToView(Intent picdata) {
         Bundle extras = picdata.getExtras();
         if (extras != null) {
-            Bitmap photo = extras.getParcelable("data");
+            final Bitmap photo = extras.getParcelable("data");
 
             switch(selectPicType) {
                 case SELECT_HEAD_PIC: { // 选择的是头像
                     BitmapDrawable drawable = new BitmapDrawable(photo);
                     headerPicImg.setImageDrawable(drawable);
-                    doUploadHead(photo); // 上传头像
+                    //doUploadHead(photo); // 上传头像
+
+                    SaveCallback saveCallback=new SaveCallback() {
+                        @Override
+                        public void done(AVException e) {
+                            AppConfig.userInfo.setPortraitBit(photo);
+                            ToastUtil.showShort(getActivity(),"上传成功");
+                        }
+                    };
+                    ProgressCallback progressCallback=new ProgressCallback() {
+                        @Override
+                        public void done(Integer integer) {
+                            ToastUtil.showShort(getActivity(),"上传进度："+integer);
+                        }
+                    };
+                    try {
+                        AVService.updateHeader("portrait",BitmapUtils.getBytes(photo),AppConfig.userInfo.getObjectId(),saveCallback,progressCallback);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     break ;
                 }
                 default:

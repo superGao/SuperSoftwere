@@ -3,9 +3,10 @@ package com.supergao.software.activity.user;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
+import com.supergao.software.utils.Log;
 import android.view.View;
 
 import com.avos.avoscloud.AVException;
@@ -58,7 +59,9 @@ public class UserInfoActivity extends BaseSingleFragmentActivity {
                     @Override
                     public void done(AVException e) {
                         if (e == null) {
-                            ToastUtil.showShort(UserInfoActivity.this,"更改用户名成功");
+                            ToastUtil.showShort(UserInfoActivity.this,"更改用户名成功，请重新登录");
+                            AVService.logout();//清空缓存
+                            startActivity(new Intent(UserInfoActivity.this,LoginActivity.class));
                             AppConfig.avUser.setUsername(userName);
                         } else {
                             switch (e.getCode()) {

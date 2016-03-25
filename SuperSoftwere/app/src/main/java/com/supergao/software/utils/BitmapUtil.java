@@ -7,7 +7,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.os.Environment;
 import android.os.StatFs;
-import android.util.Log;
+import com.supergao.software.utils.Log;
 
 import java.io.File;
 import java.io.FileDescriptor;
@@ -19,7 +19,11 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
 import java.net.URLEncoder;
-
+/**
+ *
+ *@author superGao
+ *creat at 2016/3/25
+ */
 public class BitmapUtil {
 	/**
 	 * 读取本地资源的图片

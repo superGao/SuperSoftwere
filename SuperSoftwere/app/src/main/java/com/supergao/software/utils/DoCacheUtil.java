@@ -39,7 +39,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * 已登录用户信息缓存工具类
+ *已登录用户信息缓存工具类
+ *@author superGao
+ *creat at 2016/3/25
  */
 public class DoCacheUtil {
 	public static final int TIME_HOUR = 60 * 60; // 1小时

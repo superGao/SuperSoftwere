@@ -17,7 +17,7 @@
 package com.mining.app.zxing.camera;
 
 import android.os.IBinder;
-import android.util.Log;
+import com.supergao.software.utils.Log;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

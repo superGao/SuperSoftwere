@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
-import android.util.Log;
+import com.supergao.software.utils.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -127,10 +127,6 @@ public class LoginFragment extends ContentFragment implements View.OnClickListen
                 if(e==null){
                     AppConfig.avUser=avUser;
                     AppConfig.userInfo= AVUser.cast(avUser, UserInfo.class);
-                    AppConfig.userInfo.setHeader(avUser.getString("portrait"));
-                    //将新加的字段加入缓存中
-                    DoCacheUtil.get(getActivity()).put("header",AppConfig.userInfo.getHeader(),DoCacheUtil.TIME_DAY);
-                    Log.d("user", doCacheUtil.getAsString("header"));
                     startActivity(new Intent(getActivity(), MainActivity.class));
                     getActivity().finish();
                 }else{

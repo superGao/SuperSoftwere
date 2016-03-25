@@ -27,5 +27,5 @@ dependencies {
     compile project(':libSupport')
     compile 'com.loopj.android:android-async-http:1.4.8'
     compile 'com.google.code.gson:gson:1.6'
-    compile 'com.alibaba:fastjson:1.2.6'
+    compile files('libs/fastjson.jar')
 }

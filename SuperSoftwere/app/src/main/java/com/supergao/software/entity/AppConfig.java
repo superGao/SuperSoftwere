@@ -3,7 +3,6 @@ package com.supergao.software.entity;
 import com.avos.avoscloud.AVUser;
 import com.supergao.software.bean.BaseUserInfo;
 import com.supergao.software.bean.RegisterType;
-import com.supergao.software.entity.UserInfo;
 
 /**
  * 应用程序配置类：用于保存用户相关信息及设置

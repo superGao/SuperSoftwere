@@ -1,7 +1,7 @@
 package com.supergao.software.handler;
 
 
-import android.util.Log;
+import com.supergao.software.utils.Log;
 
 import com.avos.avoscloud.AVCloudQueryResult;
 import com.avos.avoscloud.AVException;

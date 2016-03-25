@@ -8,20 +8,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
-import com.alibaba.fastjson.JSON;
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.GetCallback;
 import com.supergao.software.entity.AppConfig;
 import com.supergao.software.R;
 import com.supergao.software.activity.SettingActivity;
 import com.supergao.software.activity.user.IQRCodeActivity;
 import com.supergao.software.activity.user.LoginActivity;
-import com.supergao.software.bean.VersionInfo;
-import com.supergao.software.core.listener.DefaultActionCallbackListener;
+import com.supergao.software.utils.AVService;
+import com.supergao.software.utils.Log;
 
 import java.io.File;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import lib.support.utils.LogUtils;
 
 /**
  * 左侧菜单展示Fragment
@@ -37,7 +38,6 @@ public class HomeLeftmenuFragment extends TabContentFragment implements View.OnC
     @Bind(R.id.rl_qrcode)
     RelativeLayout rl_qrcode;
     private String url_net;
-    private Boolean isFirst=true;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -71,7 +71,7 @@ public class HomeLeftmenuFragment extends TabContentFragment implements View.OnC
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.rlayout_contact_phone:  // 联系电话
-                startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "58952553")));
+                startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "13718582913")));
                 break;
             case R.id.rlayout_setting:  // 系统设置
                 if (AppConfig.avUser != null) {
@@ -101,20 +101,34 @@ public class HomeLeftmenuFragment extends TabContentFragment implements View.OnC
      * 版本检测网络请求
      */
     public void version_checking_net(String version) {
-        if(isFirst){
-            showLoadingDialog(R.string.dialog_share);
-        }
-        getApp().getAppAction().getVersionCode(version,
-                new DefaultActionCallbackListener<VersionInfo>(getActivity()) {
+        showLoadingDialog(R.string.dialog_share);
+
+        GetCallback<AVObject> getCallback=new GetCallback<AVObject>() {
+            @Override
+            public void done(AVObject avObject, AVException e) {
+                dismissLoadingDialog();
+                if(e==null){
+                    Log.d("versionInfo:",avObject.getInt("versionCode")+"");
+                    url_net=avObject.getString("url");
+                    shareMsg("我要分享", "我要分享", "我有一个很赞的APP，听说大家都在用哦！赶快下载吧。     " + url_net, "");
+                }else {
+                    Log.d("error:",e.getMessage()+"  errorCode: "+e.getCode());
+                }
+            }
+        };
+        AVService.loadVersion(getCallback);
+
+        /*getApp().getAppAction().getVersionCode(version,
+                new DefaultActionCallbackListener<VersionInfos>(getActivity()) {
                     @Override
-                    public void onSuccess(VersionInfo data) {
+                    public void onSuccess(VersionInfos data) {
                         dismissLoadingDialog();
                         LogUtils.d("data:" + JSON.toJSONString(data));
                         if (null != data) {
                             url_net = data.getUrl();
-                            /*if(data.getType().equals("2")){
+                            *//*if(data.getType().equals("2")){
                                 shareMsg("我要分享", "我要分享", "我有一个很赞的APP，听说大家都在用哦！赶快下载吧。     " + url_net, "");
-                            }*/
+                            }*//*
                             shareMsg("我要分享", "我要分享", "我有一个很赞的APP，听说大家都在用哦！赶快下载吧。     " + url_net, "");
                         } else {
                             // 提示 暂无记录
@@ -127,7 +141,7 @@ public class HomeLeftmenuFragment extends TabContentFragment implements View.OnC
                         dismissLoadingDialog();
                         showShortToast("网络异常，请重试");
                     }
-                });
+                });*/
     }
 
     /**

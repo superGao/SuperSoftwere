@@ -86,28 +86,30 @@
     <orderEntry type="jdk" jdkName="Android API 22 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="butterknife-7.0.1" level="project" />
-    <orderEntry type="library" exported="" name="baidumapapi_v3_5_0" level="project" />
-    <orderEntry type="library" exported="" name="avoscloud-v2.6.9.1" level="project" />
     <orderEntry type="library" exported="" name="locSDK_6.05" level="project" />
     <orderEntry type="library" exported="" name="picasso-2.5.2" level="project" />
     <orderEntry type="library" exported="" name="nineoldandroids-2.4.0" level="project" />
-    <orderEntry type="library" exported="" name="support-v4-22.2.1" level="project" />
-    <orderEntry type="library" exported="" name="gson-2.3" level="project" />
-    <orderEntry type="library" exported="" name="avospush-v2.6.9.1" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-22.2.1" level="project" />
     <orderEntry type="library" exported="" name="zxing" level="project" />
-    <orderEntry type="library" exported="" name="universal-image-loader-1.9.4" level="project" />
-    <orderEntry type="library" exported="" name="fastjson-1.2.6" level="project" />
-    <orderEntry type="library" exported="" name="jg_filter_sdk_1.1" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-22.2.1" level="project" />
-    <orderEntry type="library" exported="" name="Xg_sdk_v2.38_20150405_2046" level="project" />
     <orderEntry type="library" exported="" name="mid-sdk-2.10" level="project" />
     <orderEntry type="library" exported="" name="afinal_0.5_bin" level="project" />
+    <orderEntry type="library" exported="" name="Msc" level="project" />
+    <orderEntry type="library" exported="" name="okhttp-2.6.0-leancloud" level="project" />
+    <orderEntry type="library" exported="" name="wup-1.0.0-SNAPSHOT" level="project" />
+    <orderEntry type="library" exported="" name="baidumapapi_v3_5_0" level="project" />
+    <orderEntry type="library" exported="" name="httpmime-4.2.4" level="project" />
+    <orderEntry type="library" exported="" name="support-v4-22.2.1" level="project" />
+    <orderEntry type="library" exported="" name="gson-2.3" level="project" />
+    <orderEntry type="library" exported="" name="universal-image-loader-1.9.4" level="project" />
+    <orderEntry type="library" exported="" name="avoscloud-sdk-v3.13.4" level="project" />
+    <orderEntry type="library" exported="" name="jg_filter_sdk_1.1" level="project" />
+    <orderEntry type="library" exported="" name="okio-1.6.0-leancloud" level="project" />
+    <orderEntry type="library" exported="" name="Xg_sdk_v2.38_20150405_2046" level="project" />
     <orderEntry type="library" exported="" name="androidasync-2.1.7" level="project" />
     <orderEntry type="library" exported="" name="ion-2.1.7" level="project" />
     <orderEntry type="library" exported="" name="android-async-http-1.4.8" level="project" />
-    <orderEntry type="library" exported="" name="Msc" level="project" />
-    <orderEntry type="library" exported="" name="wup-1.0.0-SNAPSHOT" level="project" />
+    <orderEntry type="library" exported="" name="avoscloud-push-v3.13.4" level="project" />
     <orderEntry type="module" module-name="CircledImageViewLib" exported="" />
     <orderEntry type="module" module-name="bean" exported="" />
     <orderEntry type="module" module-name="core" exported="" />

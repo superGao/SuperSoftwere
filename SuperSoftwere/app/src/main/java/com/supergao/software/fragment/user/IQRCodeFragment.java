@@ -27,8 +27,9 @@ import com.google.zxing.qrcode.QRCodeWriter;
 import lib.support.utils.LogUtils;
 
 /**
- * 我的二维码 展示内容Fragment
- * Created by YangJie on 2015/11/16.
+ *我的二维码 展示内容Fragment
+ *@author superGao
+ *creat at 2016/3/25
  */
 public class IQRCodeFragment extends ContentFragment implements View.OnClickListener {
 
@@ -76,31 +77,10 @@ public class IQRCodeFragment extends ContentFragment implements View.OnClickList
      * 获取二维码内容
      */
     private void getIQRCodeContent() {
-        showLoadingDialog(R.string.dialog_load_qrcode_data);
-        if (AppConfig.sUserInfo.getRoleObj().equals(Role.STATION_MANAGER)) { // 获取网点管理员的二维码信息
-            getApp().getAppAction().getManagerIQRCodeContent(AppConfig.getUserId(), AppConfig.getUserKey(), callbackListener);
-        } else { // 普通员工 and 司机获取二维码接口
-            getApp().getAppAction().getIQRCodeContent(AppConfig.getUserId(), AppConfig.getUserKey(), callbackListener);
-        }
+        String QRCode="userId:"+AppConfig.avUser.getObjectId()+";"+"userName:"+AppConfig.avUser.getUsername();
+        showIQRCodeImage(QRCode);
     }
 
-    private ActionCallbackListener<String> callbackListener = new DefaultActionCallbackListener<String>(getActivity()) {
-        @Override
-        public void onSuccess(String data) {
-            dismissLoadingDialog();
-            LogUtils.d("data: " + data);
-            qrcodeLoadTipTxt.setVisibility(View.GONE);
-            showIQRCodeImage(data);
-        }
-
-        @Override
-        public void onAfterFailure() {
-            dismissLoadingDialog();
-            UnRegisterUserUtil.unRegisterUserTodo(getActivity());
-            //qrcodeLoadTipTxt.setVisibility(View.VISIBLE);
-            //qrcodeLoadTipTxt.setText(R.string.label_i_qrcode_data_reload); // 显示重新加载字样
-        }
-    } ;
 
     /**
      * 显示二维码信息
@@ -112,6 +92,7 @@ public class IQRCodeFragment extends ContentFragment implements View.OnClickList
             qrcodeLoadTipTxt.setText(R.string.label_i_qrcode_data_reload); // 显示重新加载字样
             return ;
         }
+        qrcodeLoadTipTxt.setVisibility(View.GONE);
         Bitmap bitmap = generateQRCode(content);
         if (null != bitmap) {
             qrcodeImg.setImageBitmap(bitmap);

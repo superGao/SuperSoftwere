@@ -8,8 +8,9 @@ import com.supergao.software.fragment.ContentFragment;
 import com.supergao.software.fragment.user.IQRCodeFragment;
 
 /**
- * 我的二维码
- * Created by YangJie on 2015/11/16.
+ *我的二维码
+ *@author superGao
+ *creat at 2016/3/25
  */
 public class IQRCodeActivity extends BaseSingleFragmentActivity {
 

@@ -25,7 +25,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
+import com.supergao.software.utils.Log;
 
 import com.supergao.software.R;
 import com.supergao.software.activity.MipcaActivityCapture;

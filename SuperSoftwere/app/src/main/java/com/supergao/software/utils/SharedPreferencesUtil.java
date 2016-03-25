@@ -3,6 +3,7 @@ package com.supergao.software.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.graphics.Bitmap;
 import android.text.TextUtils;
 
 import com.supergao.software.bean.Constant;
@@ -57,5 +58,7 @@ public class SharedPreferencesUtil {
         }
         return list;
     }
+
+
 
 }

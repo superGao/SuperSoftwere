@@ -1,11 +1,9 @@
 package com.supergao.software.utils;
-
 import android.content.Context;
-import android.util.Log;
-
 import com.avos.avoscloud.AVCloud;
 import com.avos.avoscloud.AVCloudQueryResult;
 import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVFile;
 import com.avos.avoscloud.AVInstallation;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
@@ -14,7 +12,10 @@ import com.avos.avoscloud.CloudQueryCallback;
 import com.avos.avoscloud.CountCallback;
 import com.avos.avoscloud.FindCallback;
 import com.avos.avoscloud.FunctionCallback;
+import com.avos.avoscloud.GetCallback;
+import com.avos.avoscloud.GetDataCallback;
 import com.avos.avoscloud.LogInCallback;
+import com.avos.avoscloud.ProgressCallback;
 import com.avos.avoscloud.PushService;
 import com.avos.avoscloud.RequestEmailVerifyCallback;
 import com.avos.avoscloud.RequestPasswordResetCallback;
@@ -23,6 +24,7 @@ import com.avos.avoscloud.SignUpCallback;
 import com.supergao.software.activity.user.LoginActivity;
 import com.supergao.software.entity.UserInfo;
 
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
@@ -38,7 +40,7 @@ public class AVService {
     query.whereEqualTo("doingListChildObjectId", doingObjectId);
     Calendar c = Calendar.getInstance();
     c.add(Calendar.MINUTE, -10);
-    // query.whereNotEqualTo("userObjectId", userId);
+    // query.whereNotEqualTo("userObjectId", userId);//881386398557315438
     query.whereGreaterThan("createdAt", c.getTime());
     query.countInBackground(countCallback);
   }
@@ -150,12 +152,13 @@ public class AVService {
   }
 
   public static void loadPicture(CloudQueryCallback<AVCloudQueryResult> cloudQueryCallback){
-    String sql="select url from _File";
+    String sql="select url from _File where mime_type is not exists";//is exists
     AVQuery.doCloudQueryInBackground(sql, cloudQueryCallback);
   }
 
   /**
    * 修改用户名
+   * 也可使用sql语句进行操作eg：update GameScore set score=90 where objectId='558e20cbe4b060308e3eb36c'
    * @param userId
    * @param userName
    * @param saveCallback
@@ -169,4 +172,53 @@ public class AVService {
     post.put("username", userName);
     post.saveInBackground(saveCallback);
   }
+
+  /**
+   * 上传用户头像
+   * @param fileName
+   * @param bytes
+   * @param saveCallback
+   */
+  public static void updateHeader(String fileName,byte [] bytes,String userId,SaveCallback saveCallback,ProgressCallback progressCallback) throws IOException {
+    /*AVFile avFile = new AVFile(fileName, bytes);//第一个参数文件名，第二个参数文件byte数组
+    avFile.saveInBackground(saveCallback,progressCallback);
+    AVObject avObject = new AVObject("_File");
+    avObject.put("attached", avFile);
+    avObject.saveInBackground();*/
+
+    AVFile avFile = new AVFile(fileName,bytes);
+    avFile.saveInBackground(saveCallback, progressCallback);
+    AVObject avObject = new AVObject("Picture");
+    avObject.setFetchWhenSave(true);//获取更新字段在服务器上的最新结果
+    avObject.put("content", avFile);
+    avObject.put("userId",userId);
+    //avObject.put("objectId", AVObject.createWithoutData("Picture", userId));
+    avObject.saveInBackground();
+  }
+
+  /**
+   * 加载用户头像
+   * @param userId
+   * @param getDataCallback
+   */
+  public static void loadHeader(String userId,GetDataCallback getDataCallback) throws AVException {
+    /*AVQuery<AVObject> query = new AVQuery<AVObject>("Picture");
+    AVObject avObject = new AVObject("Picture");
+    avObject = query.get(userId);
+    AVFile avFile = avObject.getAVFile("content");
+    avFile.getDataInBackground(getDataCallback);*/
+
+    AVQuery<AVObject> query = new AVQuery<AVObject>("Picture");
+    query.whereEqualTo("userId", userId);//获取指定用户数据
+    AVObject avObject = new AVObject("Picture");
+    avObject=query.getFirst();  //获取该用户最新的一条数据
+    AVFile avFile = avObject.getAVFile("content");
+    avFile.getDataInBackground(getDataCallback);
+  }
+
+  public static void loadVersion(GetCallback<AVObject> findCallback){
+    AVQuery<AVObject> query = new AVQuery<AVObject>("AppVersion");
+    query.getFirstInBackground(findCallback);
+  }
+
 }
