@@ -52,8 +52,9 @@ import lib.support.utils.LogUtils;
 import lib.support.utils.ToastUtil;
 
 /**
- * 用户信息 Fragment
- * Created by YangJie on 2015/11/21.
+ *
+ *@author superGao
+ *creat at 2016/3/25
  */
 public class UserInfoFragment extends ContentFragment implements View.OnClickListener{
     @Bind(R.id.img_user_header)
@@ -192,48 +193,6 @@ public class UserInfoFragment extends ContentFragment implements View.OnClickLis
         }
     }
 
-    /**
-     * 上传头像
-     */
-    private void doUploadHead(Bitmap photo) {
-        showLoadingDialog("正在上传头像，请稍候.");
-        BaseUserInfo driverInfo = AppConfig.sUserInfo ;
-        final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-
-        // 上传头像模式
-        photo.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
-        byte[] bytes = outputStream.toByteArray();
-        getApp().getAppAction().uploadHead(driverInfo.getId(), driverInfo.getKey(), new ByteArrayInputStream(bytes), new DefaultActionCallbackListener<Common>(getActivity()) {
-            @Override
-            public void onSuccess(Common data) {
-                dismissLoadingDialog();
-                ToastUtil.showShort(getActivity(),"上传头像成功");
-                LogUtils.i(" -> upload head success. avatar:" + data.getAvatar());
-                AppConfig.sUserInfo.setAvatar(data.getAvatar());
-                doCacheUtil.put(BaseUserInfo.class.getSimpleName(), AppConfig.sUserInfo);
-
-                if (null != outputStream) {
-                    try {
-                        outputStream.close();
-                    } catch (IOException e) {
-                        LogUtils.e("close output stream error.", e);
-                    }
-                }
-            }
-
-            @Override
-            public void onAfterFailure() {
-                dismissLoadingDialog();
-                if (null != outputStream) {
-                    try {
-                        outputStream.close();
-                    } catch (IOException e) {
-                        LogUtils.e("close output stream error.", e);
-                    }
-                }
-            }
-        });
-    }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
