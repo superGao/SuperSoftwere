@@ -1,4 +1,4 @@
-package com.supergao.software;
+package com.supergao.softwere;
 
 import org.junit.Test;
 

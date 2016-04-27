@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.supergao.software" >
+    package="com.supergao.softwere" >
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- 访问网络 -->
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
@@ -33,6 +33,7 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <!-- 百度地图 -->
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <!-- 这个权限用于进行网络定位 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -58,7 +59,8 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
     <!--摄相头权限，拍照需要用到 -->
     <uses-permission android:name="android.permission.CAMERA" />
-
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
     <application android:name=".entity.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -67,86 +69,130 @@
         android:theme="@style/AppTheme" >
 
         <!-- 欢迎界面activity-->
-        <activity android:name="com.supergao.software.activity.WelcomeActivity" >
+        <activity android:name=".activity.WelcomeActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name="com.supergao.software.activity.MainActivity"
+        <activity android:name=".activity.MainActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light"/>
+            android:theme="@style/AVActivity.NoActionBar"/>
         <!-- 引导页面 -->
         <activity
             android:name=".activity.AppStart"
             android:screenOrientation="portrait"/>
+        <!-- 聊天页面 -->
+        <activity
+            android:name=".activity.ChatRoomActivity"
+            android:launchMode="singleTask" />
+        <activity android:name=".activity.ConversationDetailActivity"/>
+        <!-- 添加好友页面 -->
+        <activity android:name=".friends.ContactAddFriendActivity"/>
+        <!-- 好友信息页面 -->
+        <activity android:name=".friends.ContactPersonInfoActivity"/>
         <!-- 注册Activity-->
-        <activity android:name="com.supergao.software.activity.user.RegisterActivity"
+        <activity android:name=".activity.user.RegisterActivity"
             android:screenOrientation="portrait"/>
 
         <!-- 登录Activity-->
-        <activity android:name="com.supergao.software.activity.user.LoginActivity"
+        <activity android:name=".activity.user.LoginActivity"
             android:screenOrientation="portrait"/>
 
         <!-- 重置密码Activity-->
-        <activity android:name="com.supergao.software.activity.user.ResetPwdActivity"
+        <activity android:name=".activity.user.ResetPwdActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- 修改密码Activity-->
+        <activity android:name=".activity.user.RevisePwdActivity"
             android:screenOrientation="portrait"/>
 
         <!-- 协议Activity-->
-        <activity android:name="com.supergao.software.activity.LicenseActivity"
+        <activity android:name=".activity.LicenseActivity"
             android:screenOrientation="portrait"/>
 
         <!-- 用户信息Activity-->
-        <activity android:name="com.supergao.software.activity.user.UserInfoActivity"
+        <activity android:name=".activity.user.UserInfoActivity"
+            android:screenOrientation="portrait"/>
+        <!--加载游戏网页activity-->
+        <activity android:name=".activity.WebActivity"
             android:screenOrientation="portrait"/>
 
         <!-- 我的二维码Activity-->
-        <activity android:name="com.supergao.software.activity.user.IQRCodeActivity"
+        <activity android:name=".activity.user.IQRCodeActivity"
             android:screenOrientation="portrait"/>
         <!-- 我的消息Activity-->
         <!-- 我的消息详情Activity-->
         <!-- 二维码扫描Activity-->
-        <activity android:name="com.supergao.software.activity.MipcaActivityCapture"
+        <activity android:name=".activity.MipcaActivityCapture"
             android:screenOrientation="portrait"/>
 
         <!-- 系统设置Activity-->
-        <activity android:name="com.supergao.software.activity.SettingActivity"
+        <activity android:name=".activity.SettingActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light"/>
         <!-- 关于我们Activity-->
-        <activity android:name="com.supergao.software.activity.AboutUsActivity"
+        <activity android:name=".activity.AboutUsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light"/>
         <!-- 意见反馈Activity-->
-        <activity android:name="com.supergao.software.activity.FeedBackActivity"
+        <activity android:name=".activity.FeedBackActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light"/>
         <!-- 消息提醒设置Activity-->
-        <activity android:name="com.supergao.software.activity.SetMessageActivity"
+        <activity android:name=".activity.SetMessageActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light"/>
+        <activity android:name=".activity.LocationActivity"/>
+        <!--邀请群人员-->
+        <activity
+            android:name=".activity.ConversationAddMembersActivity"
+            android:label="@string/conversation_inviteMembers"/>
+        <!--更改群组名称-->
+        <activity android:name=".activity.UpdateContentActivity"/>
+        <!--添加好友请求-->
+        <activity android:name=".friends.ContactNewFriendActivity"/>
+        <!--群组列表-->
+        <activity
+            android:name=".activity.ConversationGroupListActivity"
+            android:label="@string/conversation_group"/>
 
-
+        <activity android:name="com.avoscloud.leanchatlib.activity.ImageBrowserActivity" />
         <!-- 位置信息上传服务 -->
-        <service android:name="com.supergao.software.service.LocationUploadService" />
-
+        <service android:name=".service.LocationUploadService" />
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="FSgNQv5mDyciIjkRNCKgehPG"/>
+            android:value="KHZ66lI6epGV6EzssDcTKT4mC76xWcyY"/><!--FSgNQv5mDyciIjkRNCKgehPG--><!--qdgGT2wl1aOFbeZfQwruDDY8-->
 
 
-        <!--leanCloud推送-->
+        <receiver android:name=".service.LeanchatReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="com.avoscloud.chat.INVITATION_ACTION" />
+            </intent-filter>
+        </receiver>
+
         <service android:name="com.avos.avoscloud.PushService" />
 
-        <receiver android:name="com.avos.avoscloud.AVBroadcastReceiver" >
+        <receiver android:name="com.avos.avoscloud.AVBroadcastReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.USER_PRESENT" />
             </intent-filter>
         </receiver>
-
+        <receiver android:name=".service.NotificationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.avoscloud.chat.intent.client_notification" />
+            </intent-filter>
+        </receiver>
 
         <!-- 信鸽推送接入  start -->
 
@@ -179,6 +225,36 @@
             </intent-filter>
         </receiver>
 
+        <!--shareSDK相关配置-->
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" >
+
+            <intent-filter>
+                <data android:scheme="tencent100371282" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <!-- 调用新浪原生SDK，需要注册的回调activity -->
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!--微信客户端回调activity-->
+        <activity
+            android:name=".activity.WXEntryActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+
+
         <!-- 【必须】 (2.30及以上版新增)展示通知的activity -->
         <!-- 【注意】 如果被打开的activity是启动模式为SingleTop，SingleTask或SingleInstance，请根据通知的异常自查列表第8点处理-->
         <activity
@@ -205,9 +281,7 @@
                 <action android:name="com.d3rich.trafficbiz.PUSH_ACTION" />
             </intent-filter>
         </service>
-
         <!-- 信鸽推送接入  end -->
-
     </application>
 
 </manifest>

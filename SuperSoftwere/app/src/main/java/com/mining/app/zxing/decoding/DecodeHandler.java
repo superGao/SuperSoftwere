@@ -21,10 +21,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import com.supergao.software.utils.Log;
+import com.supergao.softwere.utils.Log;
 
-import com.supergao.software.R;
-import com.supergao.software.activity.MipcaActivityCapture;
+import com.supergao.softwere.R;
+import com.supergao.softwere.activity.MipcaActivityCapture;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.MultiFormatReader;

@@ -25,10 +25,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import com.supergao.software.utils.Log;
+import com.supergao.softwere.utils.Log;
 
-import com.supergao.software.R;
-import com.supergao.software.activity.MipcaActivityCapture;
+import com.supergao.softwere.R;
+import com.supergao.softwere.activity.MipcaActivityCapture;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.mining.app.zxing.camera.CameraManager;

@@ -23,7 +23,7 @@ import java.util.concurrent.CountDownLatch;
 import android.os.Handler;
 import android.os.Looper;
 
-import com.supergao.software.activity.MipcaActivityCapture;
+import com.supergao.softwere.activity.MipcaActivityCapture;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.ResultPointCallback;

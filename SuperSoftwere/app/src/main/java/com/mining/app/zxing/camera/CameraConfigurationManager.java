@@ -20,7 +20,7 @@ import android.content.Context;
 import android.graphics.Point;
 import android.hardware.Camera;
 import android.os.Build;
-import com.supergao.software.utils.Log;
+import com.supergao.softwere.utils.Log;
 import android.view.Display;
 import android.view.WindowManager;
 

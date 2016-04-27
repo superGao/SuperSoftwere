@@ -1,4 +1,5 @@
-<com.supergao.software.view.DragLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.supergao.softwere.view.DragLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/dl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -46,13 +47,12 @@
                 android:id="@+id/ll_fragment_leftmenu_container"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-            </LinearLayout>
+                android:orientation="vertical"/>
         </ScrollView>
 
     </RelativeLayout>
 
-    <com.supergao.software.view.MenuLayout
+    <com.supergao.softwere.view.MenuLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#eeeeee">
@@ -62,142 +62,129 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <RelativeLayout
-                android:id="@+id/rl_title"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@color/theme_bg_blue">
-
-                <com.supergao.circledimageview.CircledImageView
-                    android:id="@+id/iv_home_header"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="10dp"
-                    android:contentDescription="@string/contentDescription"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/icon_header" />
-
-                <TextView
-                    android:id="@+id/tv_app_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="@string/app_name"
-                    android:textColor="@color/white"
-                    android:textSize="16sp" />
-
-                <LinearLayout
-                    android:id="@+id/ll_app_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_centerInParent="true"
-                    android:orientation="vertical"
-                    android:visibility="gone">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/space_10"
-                        android:gravity="center_horizontal"
-                        android:text="@string/app_name"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/space_32" />
-
-                    <TextView
-                        android:id="@+id/tv_title_role"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/space_6"
-                        android:gravity="center_horizontal"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/text_28" />
-
-                </LinearLayout>
-                <RelativeLayout
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true">
-                    <TextView
-                        android:id="@+id/tv_home_more"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/icon_voice"
-                        android:layout_marginRight="15dp"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentRight="true"/>
-                </RelativeLayout>
-            </RelativeLayout>
-
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:weightSum="5">
-
-                <RelativeLayout
-                    android:id="@+id/rl_homepage_banner"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="2">
-
-                    <android.support.v4.view.ViewPager
-                        android:id="@+id/viewpager_homepage"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
-
-                    <LinearLayout
-                        android:id="@+id/ll_point_group"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginBottom="@dimen/space_18"
-                        android:gravity="center_horizontal"
-                        android:orientation="horizontal" />
-                </RelativeLayout>
-                <!--搜索区域，隐藏-->
-                <LinearLayout
-                    android:id="@+id/rl_homepage_serch"
-                    android:layout_width="fill_parent"
-                    android:layout_height="42dp"
-                    android:background="@color/bg_home_search"
-                    android:orientation="horizontal"
-                    android:visibility="gone">
-
-                    <EditText
-                        android:id="@+id/edt_home_search"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_margin="8dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/bg_search"
-                        android:hint="@string/home_text_search"
-                        android:imeOptions="actionSearch"
-                        android:inputType="number"
-                        android:paddingLeft="14dp"
-                        android:textSize="13sp" />
-
-                    <Button
-                        android:id="@+id/btn_order_search"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginRight="10dp"
-                        android:background="@drawable/btn_search"
-                        android:onClick="searchOrder" />
-                </LinearLayout>
-
                 <LinearLayout
                     android:id="@+id/fragment_function_container"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_margin="10dp"
-                    android:layout_weight="3"
+                    android:layout_weight="4.5"
                     android:baselineAligned="false"
                     android:orientation="vertical" />
+                <LinearLayout
+                    android:id="@+id/main_bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@drawable/main_acvitivy_top_bar"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_weight="0.5">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <Button
+                            android:id="@+id/btn_message"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@null"
+                            android:drawableTop="@drawable/tabbar_chat"
+                            android:paddingBottom="2dip"
+                            android:paddingTop="7dip"
+                            android:scaleType="matrix"
+                            android:text="@string/conversation_messages"
+                            android:textColor="@drawable/tab_textcolor"
+                            android:textSize="12sp"
+                            android:onClick="onTabSelect"/>
+
+                        <ImageView
+                            android:id="@+id/iv_recent_tips"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginRight="30dp"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/common_msg_tips"
+                            android:contentDescription="@string/profile_settings"
+                            android:gravity="center"
+                            android:textColor="@android:color/white"
+                            android:textSize="12sp"
+                            android:visibility="gone" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <Button
+                            android:id="@+id/btn_contact"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@null"
+                            android:drawableTop="@drawable/tabbar_contacts"
+                            android:paddingBottom="2dip"
+                            android:paddingTop="7dip"
+                            android:scaleType="matrix"
+                            android:text="@string/contact"
+                            android:textColor="@drawable/tab_textcolor"
+                            android:textSize="12sp"
+                            android:onClick="onTabSelect"/>
+
+                        <ImageView
+                            android:id="@+id/iv_contact_tips"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginRight="30dp"
+                            android:layout_marginTop="7dp"
+                            android:background="@drawable/common_msg_tips"
+                            android:contentDescription="@string/profile_settings"
+                            android:gravity="center"
+                            android:textColor="@android:color/white"
+                            android:textSize="12sp"
+                            android:visibility="gone" />
+                    </RelativeLayout>
+
+                    <Button
+                        android:id="@+id/btn_discover"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/tabbar_discover"
+                        android:paddingBottom="2dip"
+                        android:paddingTop="7dip"
+                        android:scaleType="matrix"
+                        android:text="@string/discover_title"
+                        android:textColor="@drawable/tab_textcolor"
+                        android:textSize="12sp"
+                        android:onClick="onTabSelect"/>
+
+                    <Button
+                        android:id="@+id/btn_my_space"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:drawableTop="@drawable/tabbar_me"
+                        android:paddingBottom="2dip"
+                        android:paddingTop="7dip"
+                        android:scaleType="matrix"
+                        android:text="@string/profile_title"
+                        android:textColor="@drawable/tab_textcolor"
+                        android:textSize="12sp"
+                        android:onClick="onTabSelect"/>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-    </com.supergao.software.view.MenuLayout>
+    </com.supergao.softwere.view.MenuLayout>
 
-</com.supergao.software.view.DragLayout>
+</com.supergao.softwere.view.DragLayout>

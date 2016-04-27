@@ -32,7 +32,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="14dp"
                     android:gravity="center_vertical"
-                    android:text="重置密码"
+                    android:text="修改密码"
                     android:textColor="#333"
                     android:textSize="16sp" />
 
@@ -60,7 +60,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="14dp"
                     android:gravity="center_vertical"
-                    android:text="消息"
+                    android:text="消息提醒设置"
                     android:textColor="#333"
                     android:textSize="16sp" />
 

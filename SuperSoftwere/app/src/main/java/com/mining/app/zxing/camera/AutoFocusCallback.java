@@ -19,7 +19,7 @@ package com.mining.app.zxing.camera;
 import android.hardware.Camera;
 import android.os.Handler;
 import android.os.Message;
-import com.supergao.software.utils.Log;
+import com.supergao.softwere.utils.Log;
 
 final class AutoFocusCallback implements Camera.AutoFocusCallback {
 

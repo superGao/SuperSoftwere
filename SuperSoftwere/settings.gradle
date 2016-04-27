@@ -1,1 +1,1 @@
-include ':app', ':api', ':core', ':bean', ':CircledImageViewLib', ':libSupport'
+include ':app', ':api', ':core', ':bean', ':CircledImageViewLib', ':libSupport', ':leanchatlib'

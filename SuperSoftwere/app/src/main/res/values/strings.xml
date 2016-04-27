@@ -1,11 +1,14 @@
 <resources>
+    <string name="invitation_action">com.avoscloud.chat.INVITATION_ACTION</string>
+
+
     <string name="app_name">SuperSoftwere</string>
 
     <string name="title_default">标题</string>
     <string name="action_settings">Settings</string>
 
     <string name="text_more">更多</string>
-    <string name="text_order_management">订单管理</string>
+    <string name="chat_utils_hardLoading">努力加载中...</string>
 
     <string name="layout_base_button_text_back">返回</string>
     <string name="layout_base_button_text_register">注册</string>
@@ -21,88 +24,16 @@
     <string name="title_order_list">订单列表</string>
     <string name="title_receipt_orders_main">我要收货</string>
     <string name="title_i_qrcode">我的二维码</string>
-    <string name="title_goods_info">货物信息</string>
-    <string name="title_confirm_pickup_goods">确认收货</string>
-    <string name="title_select_logistics">物流选择</string>
-
-    <string name="title_order_forward">转发</string>
-    <string name="title_confirm_order_forward">确认转发</string>
-
-    <string name="title_terms_of_service">服务条款</string>
-    <string name="title_terms_of_trade">交易条款</string>
-
     <!-- 标签文字 -->
     <string name="label_forget_pwd">忘记密码？</string>
-    <string name="label_logo">公司LOGO</string>
-    <string name="label_company_name">公司名称</string>
-    <string name="label_legal_person_name">法人姓名</string>
-    <string name="label_identity_card_photo">身份证扫描件/照片</string>
-    <string name="label_identity_card_front_photo">身份证正面</string>
-    <string name="label_identity_card_back_photo">身份证背面</string>
-
-    <string name="label_order_query">function1</string>
+    <string name="label_order_query">语音操作</string>
     <string name="label_order_forward">function2</string>
     <string name="label_receipt">function3</string>
-    <string name="label_order_info">function4</string>
+    <string name="label_order_info">游戏中心</string>
 
-    <string name="label_goods_info">货物信息：</string>
-    <string name="label_goods_name">货物名称：</string>
-    <string name="label_goods_num">货物件数：</string>
-    <string name="label_goods_weight">货物重量：</string>
-    <string name="label_goods_volume">货物体积：</string>
-    <string name="label_goods_price">货物价值：</string>
-    <string name="label_consigner_name">姓　　名：</string>
-    <string name="label_consigner_idcard_no">身份证号：</string>
-    <string name="label_consigner_mobile">联系电话：</string>
-    <string name="label_consigner_address_detail">详细地址：</string>
-    <string name="label_order_id">订 单 号：</string>
-    <string name="label_consigner_realname">寄 件 人：</string>
-    <string name="label_recipients_realname">收 件 人：</string>
-    <string name="label_recipients_address">收货地址：</string>
-    <string name="label_deliver_address">配送地址：</string>
-    <string name="label_deliver_driver">配送司机：</string>
-    <string name="label_belong_to_area">所属地区：</string>
-
-    <string name="label_logistics_consign">发件公司：</string>
-    <string name="label_logistics_receipt">收件公司：</string>
-    <string name="label_logistics_name">物流公司：</string>
-    <string name="label_logistics_station">物流站点：</string>
-
-    <string name="label_payment_way">支付方式：</string>
-    <string name="label_deliver_time">发货时间：</string>
-    <string name="label_antcipated_freight">预估运费：</string>
-    <string name="label_actual_freight">实际运费：</string>
-    <string name="label_cod">代收货款：</string>
-    <string name="label_pickup">取货方式：</string>
-    <string name="label_express_delivery">送货方式：</string>
-    <string name="label_recycle_bill">签收回单：</string>
-
-    <string name="label_confirm_receipt">function4</string>
     <string name="label_i_qrcode_data_loading">正在加载二维码数据...</string>
     <string name="label_i_qrcode_data_reload">加载失败，点击重新加载</string>
     <string name="label_register_success">注册成功</string>
-    <string name="label_imperfect_info">您还没有完善信息</string>
-
-    <!-- tab 标签页文字-->
-    <string name="tab_unanswered">待接单</string>
-    <string name="tab_unallocated">库存中</string>
-    <string name="tab_allocated">运输中</string>
-    <string name="tab_finished">已签收</string>
-    <string name="tab_wait_take_delivery">未确认</string>
-    <string name="tab_confirm_order">已确认</string>
-    <string name="tab_taken_delivery">已取货</string>
-    <string name="tab_unforward">未转发</string>
-    <string name="tab_forwarded">已转发</string>
-
-    <string name="tab_composite">综合</string>
-    <string name="tab_price">价格</string>
-    <string name="tab_aging">时效</string>
-    <string name="tab_evaluate">评价</string>
-    <string name="tab_distance">距离</string>
-
-    <!-- edittext 提示内容-->
-    <string name="hint_input_legal_person_name">请输入法人姓名</string>
-
     <!-- Button 文字-->
     <string name="btn_ok">确定</string>
     <string name="btn_register">注册</string>
@@ -110,66 +41,20 @@
     <string name="btn_logout">注销登录</string>
     <string name="btn_perfect_info">修改</string>
     <string name="btn_submit">确认提交</string>
-    <string name="btn_confirm_pickup_goods">确认收货</string>
-    <string name="btn_accept">接收</string>
-    <string name="btn_order_accept">接收订单</string>
-    <string name="btn_order_refuse">拒绝订单</string>
-    <string name="btn_select_driver">指派司机</string>
-    <string name="btn_order_forward">转发</string>
-    <string name="btn_order_batch_forward">批量转发</string>
-    <string name="btn_confirm_order_forward">确认转发</string>
-
     <string name="btn_perfect_info2">完善信息</string>
     <string name="btn_work_later">以后再说</string>
-
     <!-- ImageView 内容描述 -->
     <string name="contentDescription"></string>
-
-    <!-- 主界面 -->
-    <string name="home_text_search">请输入十二位订单号…</string>
-    <string name="home_text_toreceive">寄给我的</string>
-    <string name="home_text_branches">服务网点</string>
-    <string name="home_text_freight_fee_query">运费查询</string>
-    <string name="home_text_claims">我要理赔</string>
-    <string name="home_text_tosend">我要发货</string>
-
-    <!-- 左侧菜单内容 -->
     <string name="login_name">登录用户</string>
     <string name="tv_integral">积分</string>
     <string name="num_integral">0</string>
-    <string name="leftmenu_focus">我关注的服务网点</string>
-    <string name="leftmenu_address">我的常用地址</string>
-    <string name="leftmenu_contact">我的常用联系人</string>
     <string name="leftmenu_phone">SuperSoftwere客服电话</string>
     <string name="leftmenu_setting">系统设置</string>
-    <string name="leftmenu_server">服务范围</string>
     <string name="leftmenu_message">我的消息</string>
-    <string name="leftmenu_company">关于我司</string>
-    <string name="leftmenu_union">合作联盟</string>
-    <string name="leftmenu_driver">司机</string>
     <string name="leftmenu_share">分享</string>
-
     <!--扫描  -->
     <string name="scan_text">将二维码放入框内, 即可自动扫描</string>
 
-    <string-array name="array_goods_package">
-        <item>001-木箱</item>
-        <item>002-纸箱</item>
-        <item>007-木桶</item>
-        <item>009-编织袋</item>
-        <item>010-塑料袋</item>
-        <item>016-铁桶</item>
-        <item>017-纤维桶</item>
-        <item>018-纸桶</item>
-        <item>019-桶</item>
-        <item>020-托盘</item>
-        <item>021-木托盘</item>
-        <item>022-盒子</item>
-        <item>023-袋子</item>
-        <item>024-标准包装</item>
-        <item>025-标准集装箱</item>
-        <item>026-特种箱</item>
-    </string-array>
     <!-- 加载刷新 -->
     <string name="xlistview_header_hint_normal">下拉可以刷新</string>
     <string name="xlistview_header_hint_ready">松开获取最新</string>
@@ -179,4 +64,88 @@
     <string name="xlistview_footer_hint_notdata">已无更多信息</string>
     <string name="xlistview_footer_hint_ready">松开载入更多</string>
     <string name="title_activity_cgn_insurance">CgnInsuranceActivity</string>
+
+    <string name="conversation_messages">消息</string>
+    <string name="contact">联系人</string>
+    <string name="profile_settings">Settings</string>
+    <string name="profile_title">彩蛋</string>
+    <string name="discover_title">附近</string>
+
+    <string name="login_username_hint">请输入用户名</string>
+    <string name="ensurePasswordHint">请在此输入密码</string>
+    <string name="login_password_hint">请输入密码</string>
+    <string name="ensurePassword">确认密码 </string>
+    <string name="register">注册</string>
+
+    <string name="password_can_not_null">密码不能为空</string>
+    <string name="username_cannot_null">用户名不能为空</string>
+    <string name="password_not_consistent">输入的两次密码不一致</string>
+    <string name="registerSucceed">注册成功</string>
+    <string name="registerFailed">注册失败。</string>
+
+    <string name="not_have_account">还没有账号？</string>
+    <string name="register_rightnow">立即注册 &gt;</string>
+    <string name="discover_metres">米</string>
+    <string name="discover_unknown">未知</string>
+    <string name="discover_recent_login_time">最近登录时间:</string>
+    <string name="contact_account">账号 </string>
+    <string name="contact_search">搜索</string>
+    <string name="contact_chat">发起会话</string>
+    <string name="contact_add_friend">添加好友</string>
+    <string name="contact_new_friends">新朋友</string>
+    <string name="contact_deleteFriendRequest">删除好友请求</string>
+    <string name="contact_agreed">已同意</string>
+    <string name="contact_deleteContact">删除联系人</string>
+    <string name="common_sure">确定</string>
+    <string name="contact_deleteSucceed">删除成功</string>
+    <string name="contact_findFriends">查找好友</string>
+    <string name="contact_add">添加</string>
+    <string name="contact_sendRequestSucceed">发送请求成功，等待对方验证</string>
+    <string name="contact_personalInfo">个人资料</string>
+    <string name="contact_detailInfo">详细资料</string>
+    <string name="contact_male">男</string>
+    <string name="contact_female">女</string>
+    <string name="profile_notifySetting">提醒设置</string>
+    <string name="profile_notifyWhenNews">接收新消息通知</string>
+    <string name="setting_preference_voice">声音</string>
+    <string name="profile_vibrate">震动</string>
+    <string name="conversation_group">群组</string>
+    <string name="conversation_name">群组名称</string>
+    <string name="conversation_create">创建</string>
+    <string name="conversation_Members">群组成员</string>
+    <string name="conversation_inviteSucceed">已发出邀请</string>
+    <string name="conversation_inviteMembers">邀请群成员</string>
+    <string name="conversation_kickTips">确认要踢走该成员吗</string>
+    <string name="conversation_detail_invite">邀请</string>
+    <string name="conversation_quitGroup">退群</string>
+    <string name="conversation_quit_group_tip">确定要退出该群组？</string>
+
+    <string name="utils_kilometres">公里</string>
+    <string name="refreshable_view_pull_to_refresh">下拉可以刷新</string>
+    <string name="refreshable_view_release_to_refresh">释放立即刷新</string>
+    <string name="refreshable_view_refreshing">正在刷新…</string>
+    <string name="profile_fragment_checkUpdate">检查更新</string>
+    <string name="discover_fragment_sort">排序</string>
+    <string name="discover_fragment_loginTime">登录时间</string>
+    <string name="discover_fragment_distance">距离</string>
+    <string name="contact_alreadyCreateAddRequest">请求已发送</string>
+    <string name="conversation_alreadyQuitConv">已退出群</string>
+    <string name="conversation_detail_kickSucceed">已踢走该成员</string>
+    <string name="conversation_detail_title">详情</string>
+
+    <string name="chat_location_activity_send">发送</string>
+    <string name="chat_getGeoInfoFailed">获取地理位置信息失败!</string>
+    <string name="chat_geoIsSame">获取坐标相同</string>
+    <string name="chat_location_mapKeyErrorTips">key 验证出错! 请在 AndroidManifest.xml 文件中检查 key 设置</string>
+    <string name="chat_reverseGeoCodeResultIs">反编码得到的地址：</string>
+    <string name="chat_cannotGetYourAddressInfo">无法获取到您的位置信息！</string>
+
+    <string name="chat_xlistview_footer_hint_normal">查看更多</string>
+    <string name="chat_xlistview_footer_hint_ready">松开载入更多</string>
+    <string name="push_add_request">您有新的好友申请</string>
+    <string name="message_when_agree_request">我们已经是好友了，来聊天吧</string>
+
+    <string name="title_terms_of_service">服务条款</string>
+    <string name="title_terms_of_trade">交易条款</string>
+    <string name="chat_common_emptyStr" />
 </resources>

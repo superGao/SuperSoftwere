@@ -3,8 +3,9 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="D:\AndroidStudio\gradle\gradle-2.10" />
         <option name="gradleJvm" value="1.8" />
         <option name="modules">
           <set>
@@ -14,6 +15,19 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/bean" />
             <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/leanchatlib" />
+            <option value="$PROJECT_DIR$/libSupport" />
+          </set>
+        </option>
+        <option name="myModules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/CircledImageViewLib" />
+            <option value="$PROJECT_DIR$/api" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/bean" />
+            <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/leanchatlib" />
             <option value="$PROJECT_DIR$/libSupport" />
           </set>
         </option>

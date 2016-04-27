@@ -19,7 +19,7 @@
             android:checked="true"
             android:gravity="center"
             android:paddingLeft="0dip"
-            android:text="@string/tab_composite"
+            android:text="类型1"
             android:textColor="@color/tab_color" />
 
         <RadioButton
@@ -31,7 +31,7 @@
             android:button="@null"
             android:gravity="center"
             android:paddingLeft="0dip"
-            android:text="@string/tab_price"
+            android:text="类型2"
             android:textColor="@color/tab_color" />
         <RadioButton
             android:id="@+id/rbtn_tab_title_aging"
@@ -42,7 +42,7 @@
             android:button="@null"
             android:gravity="center"
             android:paddingLeft="0dip"
-            android:text="@string/tab_aging"
+            android:text="类型3"
             android:textColor="@color/tab_color" />
         <RadioButton
             android:id="@+id/rbtn_tab_title_evaluate"
@@ -53,7 +53,7 @@
             android:button="@null"
             android:gravity="center"
             android:paddingLeft="0dip"
-            android:text="@string/tab_evaluate"
+            android:text="类型4"
             android:textColor="@color/tab_color" />
         <RadioButton
             android:id="@+id/rbtn_tab_title_distance"
@@ -64,7 +64,7 @@
             android:button="@null"
             android:gravity="center"
             android:paddingLeft="0dip"
-            android:text="@string/tab_distance"
+            android:text="类型5"
             android:textColor="@color/tab_color" />
     </RadioGroup>
 </LinearLayout>

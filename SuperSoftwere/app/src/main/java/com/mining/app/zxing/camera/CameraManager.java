@@ -25,7 +25,7 @@ import android.graphics.Rect;
 import android.hardware.Camera;
 import android.os.Build;
 import android.os.Handler;
-import com.supergao.software.utils.Log;
+import com.supergao.softwere.utils.Log;
 import android.view.SurfaceHolder;
 
 /**

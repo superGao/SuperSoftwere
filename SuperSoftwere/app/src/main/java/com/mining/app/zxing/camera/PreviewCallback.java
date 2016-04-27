@@ -20,7 +20,7 @@ import android.graphics.Point;
 import android.hardware.Camera;
 import android.os.Handler;
 import android.os.Message;
-import com.supergao.software.utils.Log;
+import com.supergao.softwere.utils.Log;
 
 final class PreviewCallback implements Camera.PreviewCallback {
 

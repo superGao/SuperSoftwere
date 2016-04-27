@@ -3,17 +3,37 @@
     android:id="@+id/ll_home_cgn"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp"
-    android:layout_weight="3"
+    android:layout_weight="1"
     android:baselineAligned="false"
     android:orientation="vertical"
     android:weightSum="5">
+    <include layout="@layout/common_header_layout"/>
+    <RelativeLayout
+        android:id="@+id/rl_homepage_banner"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:layout_marginBottom="8dp">
 
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager_homepage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:id="@+id/ll_point_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/space_18"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" />
+    </RelativeLayout>
     <LinearLayout
         android:id="@+id/rl_cgn_area"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="5"
+        android:layout_weight="3"
         android:baselineAligned="false"
         android:orientation="horizontal">
 
@@ -22,8 +42,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:weightSum="2">
-            <!-- 订单查询 -->
+            android:weightSum="2"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="3dp">
             <RelativeLayout
                 android:id="@+id/rlayout_order_query"
                 android:layout_width="match_parent"
@@ -39,11 +60,11 @@
 
                     <ImageView
                         android:id="@+id/img_order_query"
-                        android:layout_width="28dp"
-                        android:layout_height="36dp"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
                         android:layout_gravity="center"
                         android:contentDescription="@string/contentDescription"
-                        android:src="@drawable/icon_home_waybill" />
+                        android:src="@drawable/icon_speech" />
 
                     <TextView
                         style="@style/HomeBtnTv"
@@ -53,7 +74,6 @@
                         android:text="@string/label_order_query" />
                 </LinearLayout>
             </RelativeLayout>
-            <!-- 我要收货 -->
             <RelativeLayout
                 android:id="@+id/rlayout_receipt"
                 android:layout_width="match_parent"
@@ -92,8 +112,9 @@
             android:layout_marginLeft="@dimen/space_22"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:weightSum="2">
-            <!-- 订单转发 -->
+            android:weightSum="2"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="3dp">
             <RelativeLayout
                 android:id="@+id/rlayout_order_forward"
                 android:layout_width="match_parent"
@@ -123,7 +144,6 @@
                         android:text="@string/label_order_forward" />
                 </LinearLayout>
             </RelativeLayout>
-            <!-- 收货确认，终端快递员 -->
             <RelativeLayout
                 android:id="@+id/rlayout_confirm_receipt"
                 android:layout_width="match_parent"
@@ -151,7 +171,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="@string/label_confirm_receipt" />
+                        android:text="@string/label_order_info" />
                 </LinearLayout>
             </RelativeLayout>
         </LinearLayout>
