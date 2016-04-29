@@ -1,8 +1,6 @@
 package com.supergao.softwere.entity;
 
 import com.avos.avoscloud.AVUser;
-import com.supergao.softwere.bean.BaseUserInfo;
-import com.supergao.softwere.bean.RegisterType;
 
 /**
  * 应用程序配置类：用于保存用户相关信息及设置
@@ -10,15 +8,6 @@ import com.supergao.softwere.bean.RegisterType;
  */
 public class AppConfig {
 
-    /**
-     * 用户类型
-     */
-    public static RegisterType sRegisterType;
-
-    /**
-     * 当前APP登录的用户
-     */
-    public static BaseUserInfo sUserInfo ;
 
     public static UserInfo userInfo;
     /**
@@ -26,12 +15,5 @@ public class AppConfig {
      */
     public static AVUser avUser;
 
-    public static String getUserId() {
-        return sUserInfo.getId() ;
-    }
-
-    public static String getUserKey() {
-        return sUserInfo.getKey();
-    }
 
 }

@@ -15,7 +15,7 @@ import com.supergao.softwere.event.ContactItemLongClickEvent;
 
 import de.greenrobot.event.EventBus;
 /**
- *
+ *联系人item
  *@author superGao
  *creat at 2016/3/29
  */

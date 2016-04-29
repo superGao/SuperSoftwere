@@ -21,7 +21,7 @@ import com.supergao.softwere.utils.Log;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import lib.support.utils.ToastUtil;
+import com.supergao.softwere.utils.ToastUtil;
 
 /**
  *重置密码 fragment

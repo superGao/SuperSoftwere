@@ -23,7 +23,7 @@ import com.supergao.softwere.activity.user.LoginActivity;
 import com.supergao.softwere.fragment.ContentFragment;
 import com.supergao.softwere.utils.AVService;
 
-import lib.support.utils.ToastUtil;
+import com.supergao.softwere.utils.ToastUtil;
 
 
 /**

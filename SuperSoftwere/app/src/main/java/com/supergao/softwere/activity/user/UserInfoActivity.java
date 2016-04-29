@@ -18,7 +18,7 @@ import com.supergao.softwere.fragment.ContentFragment;
 import com.supergao.softwere.fragment.user.UserInfoFragment;
 import com.supergao.softwere.utils.AVService;
 
-import lib.support.utils.ToastUtil;
+import com.supergao.softwere.utils.ToastUtil;
 
 /**
  * 登录用户信息Activity

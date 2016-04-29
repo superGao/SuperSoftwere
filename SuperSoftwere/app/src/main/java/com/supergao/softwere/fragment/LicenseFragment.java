@@ -9,15 +9,13 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.supergao.softwere.R;
-import com.supergao.softwere.api.Api;
-import com.supergao.softwere.api.HttpEngine;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
- * 服务协议 fragment
- * Created by YangJie on 2015/12/17.
+ *服务协议 fragment
+ *@author superGao
  */
 public class LicenseFragment extends ContentFragment {
 
@@ -75,9 +73,9 @@ public class LicenseFragment extends ContentFragment {
         licenseWeb.getSettings().setDefaultTextEncodingName("utf-8");
 
         if(type == 1) {
-            licenseWeb.loadUrl(HttpEngine.getAbsoluteUrl(Api.Common.URL_LICENSE_RULE));
+            licenseWeb.loadUrl("http://supersoftwere.simplesite.com/");
         } else if(type == 2) {
-            licenseWeb.loadUrl(HttpEngine.getAbsoluteUrl(Api.Common.URL_LICENSE_ORDER));
+            licenseWeb.loadUrl("http://supersoftwere.simplesite.com/");
         }
     }
 

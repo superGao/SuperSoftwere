@@ -38,7 +38,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import butterknife.Bind;
-import lib.support.utils.ToastUtil;
+import com.supergao.softwere.utils.ToastUtil;
 
 /**
  *聊天界面详情

@@ -21,9 +21,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.supergao.circledimageview.CircledImageView;
 import com.supergao.softwere.entity.AppConfig;
 import com.supergao.softwere.R;
-import com.supergao.softwere.bean.BaseUserInfo;
 import com.supergao.softwere.bean.Constant;
-import com.supergao.softwere.bean.RegisterType;
 import com.supergao.softwere.entity.UserInfo;
 import com.supergao.softwere.fragment.ContentFragment;
 import com.supergao.softwere.popup.CameraPop;
@@ -40,7 +38,7 @@ import java.io.IOException;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import lib.support.utils.ToastUtil;
+import com.supergao.softwere.utils.ToastUtil;
 
 /**
  *
@@ -115,8 +113,6 @@ public class UserInfoFragment extends ContentFragment implements View.OnClickLis
      void onLogout(View view) {
         PushManager.getInstance().unsubscribeCurrentUserChannel();//注销推送
         UserInfo.logOut();
-        DoCacheUtil.get(getActivity()).remove(RegisterType.class.getSimpleName()) ;
-        DoCacheUtil.get(getActivity()).remove(BaseUserInfo.class.getSimpleName()) ;
         getActivity().setResult(Activity.RESULT_OK);
         getActivity().finish();
     }

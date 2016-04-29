@@ -1,6 +1,6 @@
 package com.supergao.softwere.fragment;
 
-import lib.support.utils.ToastUtil;
+import com.supergao.softwere.utils.ToastUtil;
 
 /**
  * 标签内容 fragment

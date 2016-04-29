@@ -14,8 +14,6 @@ import android.support.v4.view.ViewPager;
 import com.supergao.softwere.R;
 import com.supergao.softwere.fragment.TranslateFragment;
 import com.supergao.softwere.entity.TranslatePageTransformer;
-import com.tencent.android.tpush.XGPushClickedResult;
-import com.tencent.android.tpush.XGPushManager;
 
 /**
  *
@@ -50,16 +48,23 @@ public class AppStart extends FragmentActivity {
 				}
 			}
 		};
-
-		XGPushClickedResult result = XGPushManager
-				.onActivityStarted(AppStart.this);
-		if (result != null) {
-
-		} else {
-			initalView();
-		}
+		initalView();
 	}
 
+	private void initalView() {
+
+		boolean isProcting = sharePreference.getBoolean("isProcting", false);
+		if (!isProcting) {
+			Message msg = Message.obtain();
+			msg.what = ENTERPROCTING;
+			handler.sendMessageDelayed(msg, 0);
+		} else {
+			Message msg = Message.obtain();
+			msg.what = ENTERHOME;
+			handler.sendMessageDelayed(msg, 0);
+		}
+
+	}
 	private void startAnimation(){
 		vp=(ViewPager) findViewById(R.id.main_vp);
 
@@ -91,18 +96,4 @@ public class AppStart extends FragmentActivity {
 
 	}
 
-	private void initalView() {
-
-		boolean isProcting = sharePreference.getBoolean("isProcting", false);
-		if (!isProcting) {
-			Message msg = Message.obtain();
-			msg.what = ENTERPROCTING;
-			handler.sendMessageDelayed(msg, 0);
-		} else {
-			Message msg = Message.obtain();
-			msg.what = ENTERHOME;
-			handler.sendMessageDelayed(msg, 0);
-		}
-
-	}
 }

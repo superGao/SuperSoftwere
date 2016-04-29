@@ -30,6 +30,7 @@ import com.supergao.softwere.activity.MainActivity;
 import com.supergao.softwere.adapter.ConversationListAdapter;
 import com.supergao.softwere.entity.AppConfig;
 import com.supergao.softwere.entity.UserInfo;
+import com.supergao.softwere.popup.CustomProgressDialog;
 import com.supergao.softwere.utils.UserCacheUtils;
 
 import de.greenrobot.event.EventBus;
@@ -60,6 +61,7 @@ public class ConversationRecentFragment extends BaseFragment {
 
   private boolean hidden;
   private ConversationManager conversationManager;
+  private CustomProgressDialog customProgressDialog;
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -84,6 +86,7 @@ public class ConversationRecentFragment extends BaseFragment {
   public void onActivityCreated(Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
     headerLayout.showTitle(R.string.conversation_messages);
+    customProgressDialog=new CustomProgressDialog(getActivity(),"看我一步两步，似魔鬼的步伐。。。",R.drawable.frame_haha);
     updateConversationList();
   }
 
@@ -117,12 +120,6 @@ public class ConversationRecentFragment extends BaseFragment {
         MainActivity.mDragLayout.open();//侧滑
       }
     });
-    /*headerLayout.showLeftImageView(AppConfig.userInfo.getPortraitBit(), new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {//侧滑
-        MainActivity.mDragLayout.open();
-      }
-    });*/
   }
   public void onEvent(ConversationItemClickEvent event) {
     Intent intent = new Intent(getActivity(), ChatRoomActivity.class);
@@ -138,10 +135,11 @@ public class ConversationRecentFragment extends BaseFragment {
    * 加载聊天列表
    */
   private void updateConversationList() {
+    customProgressDialog.show();
     conversationManager.findAndCacheRooms(new Room.MultiRoomsCallback() {
       @Override
       public void done(List<Room> roomList, AVException exception) {
-        dismissLoadingDialog();
+        customProgressDialog.dismiss();
         if (filterException(exception)) {
           refreshLayout.setRefreshing(false);
           updateLastMessage(roomList);

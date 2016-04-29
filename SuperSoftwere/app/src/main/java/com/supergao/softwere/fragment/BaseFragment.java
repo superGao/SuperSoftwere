@@ -9,7 +9,10 @@ import android.widget.Toast;
 import com.supergao.softwere.R;
 import com.supergao.softwere.fragment.dialog.LoadingDialog;
 import com.supergao.softwere.view.HeaderLayout;
-
+/**
+ *
+ *@author superGao
+ */
 public class BaseFragment extends Fragment {
   protected HeaderLayout headerLayout;
   protected Context ctx;

@@ -15,7 +15,7 @@ import com.iflytek.cloud.SynthesizerListener;
 import com.supergao.softwere.activity.SettingActivity;
 import com.supergao.softwere.activity.user.UserInfoActivity;
 
-import lib.support.utils.ToastUtil;
+import com.supergao.softwere.utils.ToastUtil;
 
 /**
  * author：superGao on 2016/3/16.

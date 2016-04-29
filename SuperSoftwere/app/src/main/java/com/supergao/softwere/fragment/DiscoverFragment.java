@@ -23,6 +23,7 @@ import com.avoscloud.leanchatlib.view.RefreshableRecyclerView;
 import com.supergao.softwere.R;
 import com.supergao.softwere.entity.App;
 import com.supergao.softwere.entity.UserInfo;
+import com.supergao.softwere.popup.CustomProgressDialog;
 import com.supergao.softwere.service.PreferenceMap;
 import com.supergao.softwere.utils.UserCacheUtils;
 import com.supergao.softwere.viewholder.DiscoverItemHolder;
@@ -47,9 +48,10 @@ public class DiscoverFragment extends BaseFragment {
 
   protected LinearLayoutManager layoutManager;
 
-  HeaderListAdapter<UserInfo> discoverAdapter;
+  private HeaderListAdapter<UserInfo> discoverAdapter;
   int orderType;
-  PreferenceMap preferenceMap;
+  private PreferenceMap preferenceMap;
+  private CustomProgressDialog customProgressDialog;
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -73,6 +75,7 @@ public class DiscoverFragment extends BaseFragment {
   @Override
   public void onActivityCreated(Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
+    customProgressDialog=new CustomProgressDialog(getActivity(),"憋着急，我已经很努力了。。。",R.drawable.frame_haha);
     preferenceMap = PreferenceMap.getCurUserPrefDao(getActivity());
     orderType = preferenceMap.getNearbyOrder();
     headerLayout.showTitle(R.string.discover_title);
@@ -94,6 +97,7 @@ public class DiscoverFragment extends BaseFragment {
    * @param isRefresh
    */
   private void loadMoreDiscoverData(final int skip, final int limit, final boolean isRefresh) {
+    customProgressDialog.show();
     PreferenceMap preferenceMap = PreferenceMap.getCurUserPrefDao(App.ctx);
     AVGeoPoint geoPoint = preferenceMap.getLocation();
     if (geoPoint == null) {
@@ -114,6 +118,7 @@ public class DiscoverFragment extends BaseFragment {
     q.findInBackground(new FindCallback<UserInfo>() {
       @Override
       public void done(List<UserInfo> list, AVException e) {
+        customProgressDialog.dismiss();
         UserCacheUtils.cacheUsers(list);
         recyclerView.setLoadComplete(list.toArray(), isRefresh);
       }

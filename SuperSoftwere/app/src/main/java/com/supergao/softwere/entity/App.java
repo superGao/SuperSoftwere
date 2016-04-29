@@ -18,8 +18,6 @@ import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.SDKInitializer;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechUtility;
-import com.supergao.softwere.core.AppAction;
-import com.supergao.softwere.core.impl.AppActionBean;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
@@ -27,6 +25,8 @@ import com.supergao.softwere.friends.AddRequest;
 import com.supergao.softwere.model.UpdateInfo;
 import com.supergao.softwere.service.PushManager;
 import com.supergao.softwere.utils.LeanchatUserProvider;
+
+import im.fir.sdk.FIR;
 
 /**
  *app 执行入口类
@@ -40,7 +40,6 @@ public class App extends Application {
     public BDLocation mBdLocation;
     public LocationClientOption mLocationClientOption;
     public LocationClient mLocationClient;
-    private AppAction appAction ;
     public static boolean debug = true;
     public static App ctx;
 
@@ -52,8 +51,9 @@ public class App extends Application {
         // 将“12345678”替换成您申请的 APPID，申请地址：http://www.xfyun.cn
         // 请勿在“=”与 appid 之间添加任务空字符或者转义符
         SpeechUtility.createUtility(getApplicationContext(), SpeechConstant.APPID + "=56e8e974"+","+SpeechConstant.ENGINE_MODE + "=msc");
-        appAction = new AppActionBean() ;
         initAVOSCloud(ctx);
+        //初始化bugHD
+        FIR.init(this);
     }
 
     /**
@@ -99,9 +99,6 @@ public class App extends Application {
         ImageLoader.getInstance().init(config);
     }
 
-    public AppAction getAppAction() {
-        return appAction;
-    }
 
     /**
      * 初始化百度SDK

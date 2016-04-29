@@ -19,7 +19,7 @@ import com.avos.avoscloud.SignUpCallback;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import lib.support.utils.ToastUtil;
+import com.supergao.softwere.utils.ToastUtil;
 
 /**
  * 自定义的 AVUser

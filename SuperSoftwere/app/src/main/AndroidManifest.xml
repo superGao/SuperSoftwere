@@ -160,8 +160,6 @@
             android:label="@string/conversation_group"/>
 
         <activity android:name="com.avoscloud.leanchatlib.activity.ImageBrowserActivity" />
-        <!-- 位置信息上传服务 -->
-        <service android:name=".service.LocationUploadService" />
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
@@ -194,37 +192,6 @@
             </intent-filter>
         </receiver>
 
-        <!-- 信鸽推送接入  start -->
-
-        <!-- 【必须】 请将YOUR_ACCESS_ID修改为APP的AccessId，“21”开头的10位数字，中间没空格 -->
-        <meta-data
-            android:name="XG_V2_ACCESS_ID"
-            android:value="2100169587" />
-
-        <!-- 【必须】 请将YOUR_ACCESS_KEY修改为APP的AccessKey，“A”开头的12位字符串，中间没空格 -->
-        <meta-data
-            android:name="XG_V2_ACCESS_KEY"
-            android:value="AND12K98TR4C" />
-
-        <!-- 【必须】 信鸽receiver广播接收 -->
-        <receiver
-            android:name="com.tencent.android.tpush.XGPushReceiver"
-            android:process=":xg_service_v2">
-            <intent-filter android:priority="0x7fffffff">
-                <!-- 【必须】 信鸽SDK的内部广播 -->
-                <action android:name="com.tencent.android.tpush.action.SDK" />
-                <action android:name="com.tencent.android.tpush.action.INTERNAL_PUSH_MESSAGE" />
-                <!-- 【必须】 系统广播：开屏和网络切换 -->
-                <action android:name="android.intent.action.USER_PRESENT" />
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-
-                <!-- 【可选】 一些常用的系统广播，增强信鸽service的复活机会，请根据需要选择。当然，你也可以添加APP自定义的一些广播让启动service -->
-                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
-                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
-                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
-            </intent-filter>
-        </receiver>
-
         <!--shareSDK相关配置-->
         <activity
             android:name="com.mob.tools.MobUIShell"
@@ -253,35 +220,8 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
             android:screenOrientation="portrait" />
-
-
-        <!-- 【必须】 (2.30及以上版新增)展示通知的activity -->
-        <!-- 【注意】 如果被打开的activity是启动模式为SingleTop，SingleTask或SingleInstance，请根据通知的异常自查列表第8点处理-->
-        <activity
-            android:name="com.tencent.android.tpush.XGPushActivity"
-            android:exported="true">
-            <intent-filter>
-                <!-- 若使用AndroidStudio，请设置android:name="android.intent.action"-->
-                <action android:name="android.intent.action" />
-            </intent-filter>
-        </activity>
-
-        <!-- 【必须】 信鸽service -->
-        <service
-            android:name="com.tencent.android.tpush.service.XGPushService"
-            android:exported="true"
-            android:persistent="true"
-            android:process=":xg_service_v2" />
-
-        <!-- 【必须】 通知service，此选项有助于提高抵达率 -->
-        <service
-            android:name="com.tencent.android.tpush.rpc.XGRemoteService"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.d3rich.trafficbiz.PUSH_ACTION" />
-            </intent-filter>
-        </service>
-        <!-- 信鸽推送接入  end -->
+       <!-- bugHD相关配置-->
+        <meta-data android:value="a4bd9ab66c6dc8025594a7f89b26448d" android:name="BUG_HD_SDK_GENERAL_KEY" />
     </application>
 
 </manifest>

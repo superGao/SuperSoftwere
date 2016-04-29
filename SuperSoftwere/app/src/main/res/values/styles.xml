@@ -198,4 +198,5 @@
         <item name="android:background">@color/chat_common_blue</item>
         <item name="android:titleTextStyle">@style/ActionBarTitleStyle</item>
     </style>
+
 </resources>

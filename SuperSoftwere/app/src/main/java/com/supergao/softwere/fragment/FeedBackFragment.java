@@ -9,9 +9,8 @@ import android.widget.EditText;
 
 import com.supergao.softwere.entity.AppConfig;
 import com.supergao.softwere.R;
-import com.supergao.softwere.core.listener.DefaultActionCallbackListener;
 
-import lib.support.utils.ToastUtil;
+import com.supergao.softwere.utils.ToastUtil;
 
 /***
  * 意见反馈fragment
@@ -43,7 +42,7 @@ public class FeedBackFragment extends ContentFragment implements View.OnClickLis
             case R.id.bt_feedback_commit:
                 String feedbackText = etFeedbackContent.getText().toString().trim();
                 if(!feedbackText.isEmpty()){
-                    uploadContent(AppConfig.getUserId(), AppConfig.getUserKey(), feedbackText);
+                    uploadContent("", "", feedbackText);
                 }else{
                     ToastUtil.showShort(getActivity(),"反馈内容不能为空");
                 }
@@ -62,18 +61,6 @@ public class FeedBackFragment extends ContentFragment implements View.OnClickLis
      */
     public void uploadContent(String id, String key,String content) {
         showLoadingDialog("正在提交反馈，请稍候.");
-        getApp().getAppAction().uploadContent(id, key, content, new DefaultActionCallbackListener<Void>(getActivity()) {
-            @Override
-            public void onSuccess(Void data) {
-                dismissLoadingDialog();
-                ToastUtil.showShort(getActivity(),"反馈成功，感谢您的支持");
-                getActivity().finish();
-            }
 
-            @Override
-            public void onAfterFailure() {
-                dismissLoadingDialog();
-            }
-        });
     }
 }

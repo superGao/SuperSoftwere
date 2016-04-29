@@ -18,7 +18,7 @@ import com.supergao.softwere.activity.FeedBackActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-import lib.support.utils.ToastUtil;
+import com.supergao.softwere.utils.ToastUtil;
 
 /**
  * 关于我们fragment

@@ -77,11 +77,7 @@ public class HomeLeftmenuFragment extends TabContentFragment implements View.OnC
                 startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "13718582913")));
                 break;
             case R.id.rlayout_setting:  // 系统设置
-                if (AppConfig.avUser != null) {
-                    startActivity(new Intent(getActivity(), SettingActivity.class));
-                } else {
-                    startActivity(new Intent(getActivity(), LoginActivity.class));
-                }
+                startActivity(new Intent(getActivity(), SettingActivity.class));
                 break ;
             case R.id.rl_share:     //分享
                 version_checking_net("100");

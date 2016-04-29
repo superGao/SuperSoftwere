@@ -31,7 +31,7 @@ import com.supergao.softwere.fragment.ContentFragment;
 import com.supergao.softwere.utils.AVService;
 import com.supergao.softwere.utils.DoCacheUtil;
 
-import lib.support.utils.ToastUtil;
+import com.supergao.softwere.utils.ToastUtil;
 
 /**
  *

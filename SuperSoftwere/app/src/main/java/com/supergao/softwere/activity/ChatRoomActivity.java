@@ -49,7 +49,7 @@ public class ChatRoomActivity extends AVChatActivity {
   public boolean onOptionsItemSelected(MenuItem item) {
     int menuId = item.getItemId();
     if (menuId == R.id.people) {
-      if (null != conversation) {
+      if (null != conversation) {//聊天人员详情
         Intent intent = new Intent(ChatRoomActivity.this, ConversationDetailActivity.class);
         intent.putExtra(Constants.CONVERSATION_ID, conversation.getConversationId());
         startActivityForResult(intent, QUIT_GROUP_REQUEST);

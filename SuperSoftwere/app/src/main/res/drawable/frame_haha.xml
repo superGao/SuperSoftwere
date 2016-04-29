@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<animation-list
+    android:oneshot="false"
+    xmlns:android="http://schemas.android.com/apk/res/android" >   
+    <item android:drawable="@drawable/shape654" android:duration="80"/>
+    <item android:drawable="@drawable/shape658" android:duration="80"/>
+    <item android:drawable="@drawable/shape662" android:duration="80"/>
+    <item android:drawable="@drawable/shape666" android:duration="80"/>
+    <item android:drawable="@drawable/shape670" android:duration="80"/>
+    <item android:drawable="@drawable/shape674" android:duration="80"/>
+    <item android:drawable="@drawable/shape677" android:duration="80"/>
+    <item android:drawable="@drawable/shape678" android:duration="80"/>
+    <item android:drawable="@drawable/shape682" android:duration="80"/>
+    <item android:drawable="@drawable/shape683" android:duration="80"/>
+    <item android:drawable="@drawable/shape687" android:duration="80"/>
+    <item android:drawable="@drawable/shape688" android:duration="80"/>
+    <item android:drawable="@drawable/shape689" android:duration="80"/>
+    <item android:drawable="@drawable/shape693" android:duration="80"/>
+    <item android:drawable="@drawable/shape694" android:duration="80"/>
+    <item android:drawable="@drawable/shape698" android:duration="80"/>
+    <item android:drawable="@drawable/shape699" android:duration="80"/>
+    <item android:drawable="@drawable/shape700" android:duration="80"/>
+    <item android:drawable="@drawable/shape701" android:duration="80"/>
+    <item android:drawable="@drawable/shape702" android:duration="80"/>
+    <item android:drawable="@drawable/shape703" android:duration="80"/>
+    <item android:drawable="@drawable/shape704" android:duration="80"/>
+    <item android:drawable="@drawable/shape705" android:duration="80"/>
+    <item android:drawable="@drawable/shape706" android:duration="80"/>
+</animation-list>

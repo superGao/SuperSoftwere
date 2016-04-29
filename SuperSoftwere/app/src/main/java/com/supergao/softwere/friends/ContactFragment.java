@@ -34,6 +34,7 @@ import com.supergao.softwere.event.ContactItemLongClickEvent;
 import com.supergao.softwere.event.ContactRefreshEvent;
 import com.supergao.softwere.event.InvitationEvent;
 import com.supergao.softwere.fragment.BaseFragment;
+import com.supergao.softwere.popup.CustomProgressDialog;
 
 import java.util.List;
 
@@ -55,13 +56,12 @@ public class ContactFragment extends BaseFragment {
     protected RecyclerView recyclerView;
 
     private View headerView;
-    ImageView msgTipsView;
-
+    private ImageView msgTipsView;
     private ContactsAdapter itemAdapter;
-    LinearLayoutManager layoutManager;
+    private LinearLayoutManager layoutManager;
 
     private Handler handler = new Handler(Looper.getMainLooper());
-
+    private CustomProgressDialog customProgressDialog;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -89,6 +89,7 @@ public class ContactFragment extends BaseFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        customProgressDialog=new CustomProgressDialog(getActivity(),"不要催我，我很快了。。。",R.drawable.frame_haha);
         initHeaderView();
         initHeader();
         refresh();
@@ -145,10 +146,11 @@ public class ContactFragment extends BaseFragment {
      * @param isforce
      */
     private void getMembers(final boolean isforce) {
+        customProgressDialog.show();
         FriendsManager.fetchFriends(isforce, new FindCallback<UserInfo>() {
             @Override
             public void done(List<UserInfo> list, AVException e) {
-                dismissLoadingDialog();
+                customProgressDialog.dismiss();
                 refreshLayout.setRefreshing(false);
                 itemAdapter.setUserList(list);
                 itemAdapter.notifyDataSetChanged();

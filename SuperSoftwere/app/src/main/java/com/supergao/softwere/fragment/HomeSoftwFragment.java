@@ -43,7 +43,6 @@ import com.supergao.softwere.utils.ToastUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-import lib.support.utils.LogUtils;
 
 /**
  *彩蛋fragment

@@ -22,11 +22,11 @@ import com.supergao.softwere.handler.MessageDefine;
 import com.supergao.softwere.handler.MessageManager;
 import com.supergao.softwere.utils.AVService;
 import com.supergao.softwere.utils.Log;
+import com.supergao.softwere.utils.ToastUtil;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import lib.support.utils.ToastUtil;
 
 /**
  *重置密码 fragment
