@@ -154,12 +154,14 @@ public class ConversationRecentFragment extends BaseFragment {
   }
 
   private void updateLastMessage(final List<Room> roomList) {
+    customProgressDialog.show();
     for (final Room room : roomList) {
       AVIMConversation conversation = room.getConversation();
       if (null != conversation) {
         conversation.getLastMessage(new AVIMSingleMessageQueryCallback() {
           @Override
           public void done(AVIMMessage avimMessage, AVIMException e) {
+            customProgressDialog.dismiss();
             if (filterException(e) && null != avimMessage) {
               room.setLastMessage(avimMessage);
               int index = roomList.indexOf(room);

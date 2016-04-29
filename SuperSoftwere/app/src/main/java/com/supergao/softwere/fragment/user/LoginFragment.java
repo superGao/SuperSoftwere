@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import com.avos.avoscloud.GetDataCallback;
+import com.supergao.softwere.popup.CustomProgressDialog;
 import com.supergao.softwere.utils.BitmapUtils;
 import com.supergao.softwere.utils.Log;
 import android.view.LayoutInflater;
@@ -54,8 +55,8 @@ public class LoginFragment extends ContentFragment implements View.OnClickListen
      * 忘记密码
      */
     private TextView forgetPwdTxt ;
-
     private DoCacheUtil doCacheUtil ;
+    private CustomProgressDialog customProgressDialog;
 
     @Nullable
     @Override
@@ -66,6 +67,7 @@ public class LoginFragment extends ContentFragment implements View.OnClickListen
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        customProgressDialog=new CustomProgressDialog(getActivity(),"哥只是个传说。。。",R.drawable.frame_haha);
         initView() ;
         registerClickListener() ;
 
@@ -85,6 +87,7 @@ public class LoginFragment extends ContentFragment implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_login: {
+                hideSoftKeyboard();
                 String username = edtUserName.getText().toString().trim() ;
                 String pwd = pwdEdt.getText().toString().trim() ;
                 if(TextUtils.isEmpty(username)){
@@ -98,6 +101,7 @@ public class LoginFragment extends ContentFragment implements View.OnClickListen
                 break ;
             }
             case R.id.tv_forget_pwd: { // 忘记密码
+                hideSoftKeyboard();
                 doForgetPwd() ;
                 break ;
             }
@@ -122,10 +126,11 @@ public class LoginFragment extends ContentFragment implements View.OnClickListen
      * 登录
      */
     private void doLogin(String username,String pwd) {
-        showLoadingDialog(R.string.dialog_logining, false);
+        customProgressDialog.show();
         LogInCallback<AVUser> logInCallback=new LogInCallback<AVUser>() {
             @Override
             public void done(AVUser avUser, AVException e) {
+                customProgressDialog.dismiss();
                 if(e==null){
                     AppConfig.avUser=avUser;
                     AppConfig.userInfo= AVUser.cast(avUser, UserInfo.class);
@@ -134,7 +139,6 @@ public class LoginFragment extends ContentFragment implements View.OnClickListen
                     MainActivity.goMainActivityFromActivity(getActivity());
                     getActivity().finish();
                 }else{
-                    dismissLoadingDialog();
                     Log.d("userinfo", " " + e.getCode());
                     switch (e.getCode()){
                         case 216:
@@ -175,39 +179,6 @@ public class LoginFragment extends ContentFragment implements View.OnClickListen
                                 dialog.dismiss();
                             }
                         }).show();
-    }
-
-    /**
-     * 加载用户头像
-     */
-    private  void loadPortrait(){
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                final GetDataCallback getDataCallback=new GetDataCallback() {
-                    @Override
-                    public void done(byte[] bytes, AVException e) {
-                        if(e==null){
-                            dismissLoadingDialog();
-                            Bitmap bitmap=BitmapUtils.getBitmap(bytes);
-                            AppConfig.userInfo.setPortraitBit(bitmap);
-                            DoCacheUtil doCacheUtil=DoCacheUtil.get(getActivity());
-                            doCacheUtil.put("avatar", bitmap);
-                            MainActivity.goMainActivityFromActivity(getActivity());
-                            getActivity().finish();
-                        }else{
-                            Log.e("hhherror",e.getMessage()+"  code:"+e.getCode());
-                        }
-                    }
-                };
-                try {
-                    AVService.loadHeader(AppConfig.userInfo.getObjectId(), getDataCallback);
-                } catch (AVException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }).start();
     }
 
 }

@@ -1,9 +1,13 @@
 package com.supergao.softwere.fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.MotionEvent;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 
 import com.supergao.softwere.entity.App;
 import com.supergao.softwere.activity.BaseActivity;
@@ -21,11 +25,11 @@ public class ContentFragment extends Fragment {
      * 加载对话框
      */
     private LoadingDialog mLoadingDialog ;
-
     /**
      * 生命周期监听
      */
     private OnContentFragmentLifecycleListener mLifecycleListener ;
+    private InputMethodManager manager;	//软件盘manager
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,7 @@ public class ContentFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        manager = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         BaseActivity baseActivity = (BaseActivity) getActivity() ;
         mApp = baseActivity.getApp() ;
 
@@ -137,5 +142,17 @@ public class ContentFragment extends Fragment {
          * @param contentFragment
          */
         void onActivityCreated(ContentFragment contentFragment) ;
+    }
+
+    /**
+     * 隐藏键盘
+     */
+    public void hideSoftKeyboard() {
+        if (getActivity().getWindow().getAttributes().softInputMode != WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN) {
+            if (getActivity().getCurrentFocus() != null)
+                manager.hideSoftInputFromWindow(getActivity()
+                                .getCurrentFocus().getWindowToken(),
+                        InputMethodManager.HIDE_NOT_ALWAYS);
+        }
     }
 }
