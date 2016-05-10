@@ -21,6 +21,7 @@ import com.avoscloud.leanchatlib.utils.Constants;
 import com.avoscloud.leanchatlib.utils.LogUtils;
 import com.avoscloud.leanchatlib.view.RefreshableRecyclerView;
 import com.supergao.softwere.R;
+import com.supergao.softwere.activity.MainActivity;
 import com.supergao.softwere.entity.App;
 import com.supergao.softwere.entity.UserInfo;
 import com.supergao.softwere.popup.CustomProgressDialog;
@@ -88,6 +89,24 @@ public class DiscoverFragment extends BaseFragment {
       }
     });
     recyclerView.refreshData();
+  }
+
+  @Override
+  public void onResume() {
+    super.onResume();
+    showAvatar();
+  }
+
+  /**
+   * 显示用户头像
+   */
+  private void showAvatar(){
+    headerLayout.showLeftImageByUrl(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        MainActivity.mDragLayout.open();//侧滑
+      }
+    });
   }
 
   /**

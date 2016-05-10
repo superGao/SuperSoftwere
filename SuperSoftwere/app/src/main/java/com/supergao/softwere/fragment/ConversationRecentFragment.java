@@ -135,11 +135,9 @@ public class ConversationRecentFragment extends BaseFragment {
    * 加载聊天列表
    */
   private void updateConversationList() {
-    customProgressDialog.show();
     conversationManager.findAndCacheRooms(new Room.MultiRoomsCallback() {
       @Override
       public void done(List<Room> roomList, AVException exception) {
-        customProgressDialog.dismiss();
         if (filterException(exception)) {
           refreshLayout.setRefreshing(false);
           updateLastMessage(roomList);

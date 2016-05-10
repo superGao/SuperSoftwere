@@ -36,7 +36,7 @@ public class UserInfo extends AVUser {
     public static final String AVATAR = "avatar";
     public static final String LOCATION = "location";
     public static final String INSTALLATION = "installation";
-
+    private StringBuilder buffer;
 
     public static String getCurrentUserId () {
         UserInfo currentUser = getCurrentUser(UserInfo.class);
@@ -156,4 +156,5 @@ public class UserInfo extends AVUser {
     public void setPortrait(String portrait) {
         this.put("portrait",portrait);
     }
+
 }

@@ -110,6 +110,7 @@
     <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/nearby_order.xml" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/scan_qrcode_selector.xml" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/drawable/tab_textcolor.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_friends.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/layout/chat_common_base_header.xml" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/layout/chat_common_base_header_right_btn.xml" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/layout/chat_common_base_header_right_image_btn.xml" charset="GBK" />
@@ -145,6 +146,8 @@
     <file url="file://$PROJECT_DIR$/leanchatlib/src/main/java/com/avoscloud/leanchatlib/popup/SelectPicPopupWindow.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/leanchatlib/src/main/java/com/avoscloud/leanchatlib/utils/SaveImageUtils.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/leanchatlib/src/main/java/com/avoscloud/leanchatlib/utils/TextManager.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/leanchatlib/src/main/java/com/avoscloud/leanchatlib/view/ClearEditText.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/leanchatlib/src/main/java/com/avoscloud/leanchatlib/view/SideBar.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/leanchatlib/src/main/java/com/avoscloud/leanchatlib/viewholder/ChatItemTextHolder.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/leanchatlib/src/main/res/anim/push_bottom_in.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/leanchatlib/src/main/res/anim/push_bottom_out.xml" charset="UTF-8" />
@@ -155,6 +158,8 @@
     <file url="file://$PROJECT_DIR$/leanchatlib/src/main/res/drawable/btn_style_alert_dialog_button.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/leanchatlib/src/main/res/drawable/btn_style_alert_dialog_cancel.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/leanchatlib/src/main/res/drawable/btn_style_alert_dialog_special.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/leanchatlib/src/main/res/drawable/search_bar_edit_selector.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/leanchatlib/src/main/res/drawable/sidebar_background.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/leanchatlib/src/main/res/layout/alert_dialog.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/leanchatlib/src/main/res/layout/pop_item_layout.xml" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />

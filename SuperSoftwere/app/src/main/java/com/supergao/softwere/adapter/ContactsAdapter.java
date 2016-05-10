@@ -19,7 +19,7 @@ import java.util.Locale;
 import java.util.Map;
 
 /**
- *
+ *联系人列表数据适配器
  *@author superGao
  *creat at 2016/3/29
  */

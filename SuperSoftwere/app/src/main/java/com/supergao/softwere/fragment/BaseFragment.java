@@ -4,6 +4,8 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import com.supergao.softwere.R;
@@ -20,11 +22,13 @@ public class BaseFragment extends Fragment {
    * 加载对话框
    */
   private LoadingDialog mLoadingDialog ;
+  private InputMethodManager manager;	//软件盘manager
   @Override
   public void onActivityCreated(Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
     ctx = getActivity();
     headerLayout = (HeaderLayout) getView().findViewById(R.id.headerLayout);
+    manager = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
   }
 
   protected void toast(String str) {
@@ -101,6 +105,18 @@ public class BaseFragment extends Fragment {
     if (null != mLoadingDialog) {
       mLoadingDialog.dismiss();
       mLoadingDialog = null ;
+    }
+  }
+
+  /**
+   * 隐藏键盘
+   */
+  public void hideSoftKeyboard() {
+    if (getActivity().getWindow().getAttributes().softInputMode != WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN) {
+      if (getActivity().getCurrentFocus() != null)
+        manager.hideSoftInputFromWindow(getActivity()
+                        .getCurrentFocus().getWindowToken(),
+                InputMethodManager.HIDE_NOT_ALWAYS);
     }
   }
 }
